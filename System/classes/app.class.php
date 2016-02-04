@@ -9,27 +9,37 @@
 // 模板引擎应该在这里引入
 class app{
     private $router;
+    private $database;
 
     public function __construct(){
-        $this->router = good::load_config('router');
+        $this->router = system::load_config('config');
         $this->init();
     }
     public function init(){
-        $router_m = preg_match('/^[a-z]/' , $_GET['m']) ? $_GET['m'] : $this->router['router_m']; // 选取模板目录
-        $router_c = preg_match('/^[a-z]/' , $_GET['c']) ? $_GET['c'] : $this->router['router_c']; // 选取模板页面
-        $router_a = preg_match('/^[a-z]/' , $_GET['a']) ? $_GET['a'] : $this->router['router_a']; // 选取模板方法
-        $module = MODULES_PATH . '/' . $router_m;
-        $controller = $module . '/' . $router_c . '.php';
-        if(!is_dir($module)) die('modules \'' . $router_m . '\' is not dir!');
+        //// Controller
+        // 选取目录Home(Index默认)
+        $route_home = preg_match('/^[a-z]/' , $_GET['m']) ? $_GET['m'] : $this->router['Home'];
+
+        // 选取页面Controller
+        $route_control = preg_match('/^[a-z]/' , $_GET['c']) ? $_GET['c'] : $this->router['Cont'];
+
+        // 选取方法Method
+        $route_method = preg_match('/^[a-z]/' , $_GET['a']) ? $_GET['a'] : $this->router['Meth'];
+
+        $module = CONT_PATH . '/' . $route_home;
+        $controller = $module . '/' . $route_control . '.php';
+
+        if(!is_dir($module)) die('modules \'' . $route_home . '\' is not dir!');
+
         if(!file_exists($controller)){
-            die('controller \'' . $router_c . '\' is not defined!');
+            die('controller \'' . $route_control . '\' is not defined!');
         }else{
             include($controller); // include模板php
-            $ctrl = new $router_c(); // 新建模板目录下面的类
-            if(!method_exists($ctrl , $router_a)){
-                die('action \'' . $router_a . '\' is not defined!');
+            $ctrl = new $route_control(); // 新建模板目录下面的类
+            if(!method_exists($ctrl , $route_method)){
+                die('action \'' . $route_method . '\' is not defined!');
             }else{
-                return $ctrl->$router_a(); // 执行router_a方法 默认init
+                return $ctrl->$route_method(); // 执行route_method方法 默认init
             }
         }
     }

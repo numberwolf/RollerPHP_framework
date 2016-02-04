@@ -10,4 +10,4 @@
 define('rollerPHP' , dirname(__FILE__));
 define('System' ,'/System');
 include(rollerPHP . System . '/system.php');
-system::init_app();
+system::start();
