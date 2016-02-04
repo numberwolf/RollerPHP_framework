@@ -6,9 +6,11 @@
  * Time: 下午10:56
  */
 
-namespace Models\Mysql\hello;
+// namespace Models\Mysql\hello;
 
 
 class hello {
-
+	public static function testModel() {
+		return array('hello' => 'world', 'name' => 'myname', 'sex' => 'boy' );
+	} 
 } 

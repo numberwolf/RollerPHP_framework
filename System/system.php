@@ -76,12 +76,15 @@ class system {
         if('' == $path) {
             $path = CLASSES_PATH;
         }
-        $file = CLASSES_PATH . '/' . $className . '.class.php';
+        $file = $path . '/' . $className . '.class.php';
 
         if(!file_exists($file)){
             die('class \'' . $className . '\' is not exists!');
+
         }else{
+
             include($file);
+
             if($init == 1){
                 return new $className();
             }else{
@@ -90,9 +93,12 @@ class system {
         }
     }
 
-    public static function load_model($modelName) {
+    public static function load_model($modelName, $path = '') {
+        if('' == $path) {
+            $path = MODELS_PATH;
+        }
 
-        $file = MODELS_PATH . '/' . $modelName . '.class.php';
+        $file = $path . '/' . $modelName . '.class.php';
 
         if(!file_exists($file)) {
             die('model \'' . $modelName . '\' is not exists');
@@ -103,7 +109,7 @@ class system {
     }
 
 
-    /*** 这个方法不要 ***/
+    /*** 渲染模板 ***/
     public static function load_tpl($tplName , $style = 'default') {
 
         $tplFile = TEMPLATES_PATH . '/' . $style . '/' . $tplName . '.tpl.php';
@@ -186,6 +192,10 @@ class system {
         $oldStr = "/\{\{.*?\}\}/ism";
 
         return preg_replace($oldStr,$element,$string,1);
+    }
+
+    public static function test() {
+        echo "test system";
     }
 }
 
