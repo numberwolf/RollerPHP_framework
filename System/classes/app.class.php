@@ -6,7 +6,6 @@
  * Time: 下午8:07
  */
 
-// 模板引擎应该在这里引入
 final class app {
     private $router;
     private $database;
@@ -37,15 +36,15 @@ final class app {
             die('controller \'' . $route_control . '\' is not defined!');
 
         }else{
-            
-            include($controller); // include模板php
-            $ctrl = new $route_control(); // 新建模板目录下面的类
-            // echo $controller;
+
+            include($controller); 
+            $ctrl = new $route_control(); 
+
 
             if(!method_exists($ctrl , $route_method)){
                 die('action \'' . $route_method . '\' is not defined!');
             }else{
-                return $ctrl->$route_method(); // 执行route_method方法 默认init
+                return $ctrl->$route_method(); 
             }
         }
     }

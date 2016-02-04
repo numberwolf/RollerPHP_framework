@@ -6,11 +6,6 @@
  * Time: 下午6:56
  */
 
-// 配置默认入口
-define('Home','Index');
-define('Cont','index');
-define('Meth','start');
-
 // 配置数据库
 define('DBTYPE','mysql');
 define('DBNAME','');

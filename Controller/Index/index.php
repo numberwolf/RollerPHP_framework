@@ -5,8 +5,9 @@
  * Date: 16-2-4
  * Time: 下午7:01
  */
-// 控制器
-if(!defined('CHMOD_ROLLER')) exit('No permission to access!');
+
+if(!defined('CHMOD_ROLLER')) exit('权限不足!');
+
 class index{
 
     public function __construct() {
@@ -25,6 +26,7 @@ class index{
 
     public function model(){
         $configArr = system::load_pdo();
+        echo "这是一个数据库连接实例";
 
     }
 

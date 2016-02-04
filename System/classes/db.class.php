@@ -6,7 +6,6 @@
  * Time: 下午8:31
  */
 
-// namespace NongDaTel_API\API\Utilities\db;
 class db{
 
     private $DBname = null;

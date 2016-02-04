@@ -32,7 +32,7 @@ define('VIEWS_PATH',	                ROLLER_PATH . '/Views');
 /*db config*/
 define('DB_CONFIG_NAME',                'db');
 
-/* 过滤 */
+
 if (get_magic_quotes_gpc()) {
     function stripslashes_deep($value) {
         $value = is_array($value) ?
@@ -49,7 +49,7 @@ if (get_magic_quotes_gpc()) {
 }
 
 error_reporting(E_ALL ^ E_NOTICE);
-ob_start(); // 缓冲池
+ob_start(); 
 
 header('content-type:text/html;charset=utf-8');
 header('Cache-Control: no-cache, no-store, max-age=0, must-revalidate');
@@ -71,9 +71,8 @@ final class system {
 
             return include($file);
         }
-    }/******** here *********/
+    }
 
-    /***  数据库连接对象  ***/
     public static function load_pdo() {
         $db_config_arr = self::load_config(DB_CONFIG_NAME);
         $path = CLASSES_PATH.'/'.DB_CONFIG_NAME.'.class.php';
@@ -126,7 +125,7 @@ final class system {
     }
 
 
-    /*** 渲染模板 ***/
+
     public static function load_tpl($tplName , $style = 'default') {
 
         $tplFile = TEMPLATES_PATH . '/' . $style . '/' . $tplName . '.tpl.php';
@@ -137,7 +136,7 @@ final class system {
             return $tplFile;
         }
     }
-    /*********************/
+
 
 
     public static function load_func($funcName , $path='') {
@@ -153,11 +152,6 @@ final class system {
         }
     }
 
-    /*
-     *
-     *   分离渲染html   "{{.*}}"
-     *
-     */
     public static function drawViews($filename,$dataArray,$path = '') {
         if ($path == '') {
             $path = VIEWS_PATH;
@@ -170,13 +164,10 @@ final class system {
         while(false != ($a = fread($handle, 8080))) {//返回false表示已经读取到文件末尾
             $content .= $a; // 获取html内容
         }
-//        echo "test.html内容:".$content."<hr>";
+
         fclose($handle);
-//        return $content;
 
         $KeyArr = self::getVal($content); // 获得html内所有key
-
-//        var_dump($KeyArr);
 
         foreach($KeyArr as $key) {
             if (array_key_exists($key,$dataArray)) {
