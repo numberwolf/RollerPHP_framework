@@ -23,14 +23,10 @@ class index{
         include system::load_tpl('index');
     }
 
-    // public function model(){
-    //     $db = system::load_model('test');
-    //     if( $db->delete('`catid` > \'10\'')){
-    //         echo 'ok';
-    //     }else{
-    //         echo 'no';
-    //     }
-    // }
+    public function model(){
+        $DB_PDO = system::load_class('api_sql'); // 新建数据库对象
+
+    }
 
     public function func() {
         system::test();

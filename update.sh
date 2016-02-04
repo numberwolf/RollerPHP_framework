@@ -1,3 +1,3 @@
-git add .;
-git commit -m "push better";
-git push origin master;
+git add -A;
+git commit -m $(date +%Y%m%d);
+git push -u origin master;

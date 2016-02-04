@@ -33,6 +33,7 @@ class api_sql{
         }catch(PDOException $e){
             die("connect fail!".$e->getMessage());
         }
+        
         $this->PDO_OBJ->query('set names utf8');
     }
     // 释放连接
