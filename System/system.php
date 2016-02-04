@@ -6,28 +6,29 @@
  * Time: 下午8:06
  */
 
+if(!defined('CHMOD_ROLLER'))            define('CHMOD_ROLLER',       TRUE);
 /*框架目录*/
-define('ROLLER_PATH',       dirname(dirname(__FILE__)));
+define('ROLLER_PATH',                   dirname(dirname(__FILE__)));
 /*类、函数目录*/
-define('LIB_PATH',          ROLLER_PATH . '/Lib');
+define('LIB_PATH',                      ROLLER_PATH . '/Lib');
 /*公用相同类库*/
-define('Common_PATH',       LIB_PATH . '/common');
+define('Common_PATH',                   LIB_PATH . '/common');
 /*核心文件目录*/
-define('SYSTEM_PATH',       ROLLER_PATH . '/System');
+define('SYSTEM_PATH',                   ROLLER_PATH . '/System');
 /*函数目录*/
-define('FUNC_PATH',         SYSTEM_PATH . '/functions');
+define('FUNC_PATH',                     SYSTEM_PATH . '/functions');
 /*框架核心类库文件目录*/
-define('CLASSES_PATH',      SYSTEM_PATH . '/classes');
+define('CLASSES_PATH',                  SYSTEM_PATH . '/classes');
 /*配置文件目录*/
-define('CONF_PATH',         ROLLER_PATH . '/Configs');
+define('CONF_PATH',                     ROLLER_PATH . '/Configs');
 /*控制器目录*/
-define('CONT_PATH',         ROLLER_PATH . '/Controllers');
+define('CONT_PATH',                     ROLLER_PATH . '/Controller');
 /*模型目录*/
-define('MODELS_PATH',       ROLLER_PATH . '/Models');
+define('MODELS_PATH',                   ROLLER_PATH . '/Models');
 /*模板目录*/
-define('TEMPLATES_PATH',	ROLLER_PATH . '/Templates');
+define('TEMPLATES_PATH',	            ROLLER_PATH . '/Templates');
 /*视图目录*/
-define('VIEWS_PATH',	    ROLLER_PATH . '/Views');
+define('VIEWS_PATH',	                ROLLER_PATH . '/Views');
 
 /* 过滤 */
 if (get_magic_quotes_gpc()) {

@@ -17,7 +17,7 @@ define('DBNAME','');
 define('DBHOST','127.0.0.1');
 define('DBPORT','');
 define('DBUSER','root');
-define('DBPASS','root');
+define('DBPASS','porsche');
 define('DBCHAR','utf8');
 define('DBTbBG','');
 
