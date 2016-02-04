@@ -9,23 +9,23 @@
 ＜/br＞
 ###框架结构:＜/br＞
 ＜/br＞
-[RollerPHP]---[Configs]---------config.php      // 路由配置＜/br＞
-	 	   |				|---db.php          // 数据库配置＜/br＞
-	 	   |＜/br＞
-	 	   |--[Controller]--[Index]--index.php  // 控制器文件＜/br＞
- 		   |＜/br＞
- 		   |＜/br＞
- 		   |--[Models]---hello.class.php 		// 数据模型＜/br＞
- 		   |＜/br＞
- 		   |--[System]---[classes]              // 核心类＜/br＞
- 		   |		  |--[functions]			// 核心功能＜/br＞
- 		   |		  |--system.php             // 核心文件＜/br＞
- 		   |＜/br＞
- 		   |--[Templates] 						// 模板＜/br＞
- 		   |＜/br＞
- 		   |＜/br＞
- 		   |--[Views]							// 视图＜/br＞
- 		   |＜/br＞
- 		   |--index.html 						// 入口文件＜/br＞
+[RollerPHP]---[Configs]---------config.php      // 路由配置     
+	 	   |				|---db.php          // 数据库配置    
+	 	   |     
+	 	   |--[Controller]--[Index]--index.php  // 控制器文件     
+ 		   |     
+ 		   |     
+ 		   |--[Models]---hello.class.php 		// 数据模型     
+ 		   |     
+ 		   |--[System]---[classes]              // 核心类    
+ 		   |		  |--[functions]			// 核心功能    
+ 		   |		  |--system.php             // 核心文件     
+ 		   |     
+ 		   |--[Templates] 						// 模板    
+ 		   |    
+ 		   |    
+ 		   |--[Views]							// 视图     
+ 		   |     
+ 		   |--index.html 						// 入口文件     
 
 
