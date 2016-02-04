@@ -6,8 +6,8 @@
  * Time: 下午8:31
  */
 
-// namespace NongDaTel_API\API\Utilities\api_sql;
-class api_sql{
+// namespace NongDaTel_API\API\Utilities\db;
+class db{
 
     private $DBname = null;
     private $DBip = null;
@@ -33,7 +33,7 @@ class api_sql{
         }catch(PDOException $e){
             die("connect fail!".$e->getMessage());
         }
-        
+
         $this->PDO_OBJ->query('set names utf8');
     }
     // 释放连接

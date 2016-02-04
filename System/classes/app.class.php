@@ -7,7 +7,7 @@
  */
 
 // 模板引擎应该在这里引入
-class app{
+final class app {
     private $router;
     private $database;
 
@@ -15,6 +15,7 @@ class app{
         $this->router = system::load_config('config');
         $this->init();
     }
+
     public function init(){
 
         //// Controller
@@ -36,6 +37,7 @@ class app{
             die('controller \'' . $route_control . '\' is not defined!');
 
         }else{
+            
             include($controller); // include模板php
             $ctrl = new $route_control(); // 新建模板目录下面的类
             // echo $controller;

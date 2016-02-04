@@ -24,7 +24,7 @@ class index{
     }
 
     public function model(){
-        $DB_PDO = system::load_class('api_sql'); // 新建数据库对象
+        $configArr = system::load_pdo();
 
     }
 

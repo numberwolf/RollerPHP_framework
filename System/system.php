@@ -29,6 +29,8 @@ define('MODELS_PATH',                   ROLLER_PATH . '/Models');
 define('TEMPLATES_PATH',	            ROLLER_PATH . '/Templates');
 /*视图目录*/
 define('VIEWS_PATH',	                ROLLER_PATH . '/Views');
+/*db config*/
+define('DB_CONFIG_NAME',                'db');
 
 /* 过滤 */
 if (get_magic_quotes_gpc()) {
@@ -54,23 +56,38 @@ header('Cache-Control: no-cache, no-store, max-age=0, must-revalidate');
 header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
 header('Pragma: no-cache');
 
-class system {
+final class system {
     public static function start() {
         return self::load_class('app');
     }
 
-    public static function load_config($configName , $path='') {
+    public static function load_config($configName ) {
 
-        if('' == $path) $path = CONF_PATH;
-        $file = $path . '/' . $configName . '.php';
+        $file = CONF_PATH . '/' . $configName . '.php';
 
         if(!file_exists($file)){
             die('config file \'' .$configName. '\' is not exists!');
         }else{
-            include($file);
-            return ConfigUp();
+
+            return include($file);
         }
     }/******** here *********/
+
+    /***  数据库连接对象  ***/
+    public static function load_pdo() {
+        $db_config_arr = self::load_config(DB_CONFIG_NAME);
+        $path = CLASSES_PATH.'/'.DB_CONFIG_NAME.'.class.php';
+
+        include($path);
+
+        $DBname = $db_config_arr['DBNAME'];
+        $DBip = $db_config_arr['DBHOST'];
+        $DBuser = $db_config_arr['DBUSER'];
+        $DBpwd = $db_config_arr['DBPASS'];
+        $DBCLASS = DB_CONFIG_NAME;
+
+        return new $DBCLASS($DBname,$DBip,$DBuser,$DBpwd);
+    }
 
     public static function load_class($className , $path='' , $init = 1) {
         if('' == $path) {
