@@ -8,7 +8,7 @@
 ———————————-———————————-———————————-————————
 
 ###框架结构:  
-    
+      
 [RollerPHP]   
 |     
 |----------[Configs]                         // 配置        
@@ -26,3 +26,8 @@
 |----------index.html 						 // 入口文件     
 
 
+    
+
+
+访问：http://HOST/RollerPHP_framework/        
+或者带参数index.php?Home=Index&Cont=index&Meth=start

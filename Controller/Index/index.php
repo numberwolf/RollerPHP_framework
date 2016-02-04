@@ -15,7 +15,7 @@ class index{
     }
 
     public function start() {
-        echo "欢迎使用rollerPHP框架";
+        echo "<h1>欢迎使用rollerPHP框架!</h1><br>作者:小老虎<br>邮箱:porschegt23@foxmail.com";
     }
 
     public function view() {
@@ -26,7 +26,7 @@ class index{
 
     public function model(){
         $helloModel = system::load_model('hello');
-        
+
         // $helloModel->hellotest();
 
     }
