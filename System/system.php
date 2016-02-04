@@ -75,9 +75,8 @@ final class system {
 
     public static function load_pdo() {
         $db_config_arr = self::load_config(DB_CONFIG_NAME);
-        $path = CLASSES_PATH.'/'.DB_CONFIG_NAME.'.class.php';
-
-        include($path);
+        // $path = CLASSES_PATH.'/'.DB_CONFIG_NAME.'.class.php';
+        // include($path);
 
         $DBname = $db_config_arr['DBNAME'];
         $DBip = $db_config_arr['DBHOST'];
@@ -102,9 +101,9 @@ final class system {
             include($file);
 
             if($init == 1){
-                return new $className();
+                return new $className(); // include , new
             }else{
-                return true;
+                return true; // include
             }
         }
     }

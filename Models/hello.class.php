@@ -7,10 +7,17 @@
  */
 
 // namespace Models\Mysql\hello;
+system::load_class('db' , '' , 0);
 
+class hello extends db{
+	public $PDO_OBJ = null;
 
-class hello {
 	public static function testModel() {
 		return array('hello' => 'world', 'name' => 'myname', 'sex' => 'boy' );
 	} 
+
+	public function __construct(){
+		$this->PDO_OBJ = system::load_pdo();
+		echo "数据模型实例";
+	}
 } 

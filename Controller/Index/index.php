@@ -25,8 +25,9 @@ class index{
     }
 
     public function model(){
-        $configArr = system::load_pdo();
-        echo "这是一个数据库连接实例";
+        $helloModel = system::load_model('hello');
+        
+        // $helloModel->hellotest();
 
     }
 
