@@ -49,7 +49,7 @@ if (get_magic_quotes_gpc()) {
 }
 
 error_reporting(E_ALL ^ E_NOTICE);
-ob_start(); 
+ob_start();
 
 header('content-type:text/html;charset=utf-8');
 header('Cache-Control: no-cache, no-store, max-age=0, must-revalidate');
@@ -151,6 +151,11 @@ final class system {
         }
     }
 
+    /***********
+     ***********
+     渲染视图引擎  采用{{.*}}
+     ************
+     ************/
     public static function drawViews($filename,$dataArray,$path = '') {
         if ($path == '') {
             $path = VIEWS_PATH;
@@ -172,7 +177,7 @@ final class system {
             if (array_key_exists($key,$dataArray)) {
                 $content = self::replace_to($dataArray[$key],$content);
             } else {
-                $content = self::replace_to("null",$content);
+                $content = self::replace_to("<!---RollerPHP这里无参数--->",$content);
             }
         }
 
@@ -205,6 +210,3 @@ final class system {
         echo "test system";
     }
 }
-
-
-

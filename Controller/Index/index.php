@@ -43,14 +43,14 @@ class index{
 
     // 渲染html
     public function testDrawView() {
-        $modelArr = array('hello' => 'world', 'name' => 'myname', 'sex' => 'boy' );
+        $modelArr = array('hello' => 'RollerPHP', 'name' => 'myname', 'sex' => 'boy' );
         // var_dump($modelArr);
 
         echo system::drawViews('index',$modelArr)."<br>这是一个html渲染实例";
     }
 
     public function hello () {
-        echo "hello world";
+        echo "hello RollerPHP";
     }
 }
 ?>
