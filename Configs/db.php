@@ -8,7 +8,7 @@
 
 // 配置数据库
 define('DBTYPE','mysql');
-define('DBNAME','');
+define('DBNAME','test');
 define('DBHOST','127.0.0.1');
 define('DBPORT','');
 define('DBUSER','root');

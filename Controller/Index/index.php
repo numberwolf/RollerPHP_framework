@@ -27,6 +27,7 @@ class index{
     public function model(){
         $helloModel = system::load_model('hello');
 
+        $helloModel->search();
         // $helloModel->hellotest();
 
     }

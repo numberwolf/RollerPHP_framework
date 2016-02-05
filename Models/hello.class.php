@@ -16,8 +16,14 @@ class hello extends db{
 		return array('hello' => 'world', 'name' => 'myname', 'sex' => 'boy' );
 	} 
 
-	public function __construct(){
+	public function __construct() {
 		$this->PDO_OBJ = system::load_pdo();
 		echo "数据模型实例";
+	}
+
+	public function search() {
+
+		$ResArr = $this->PDO_OBJ->select_Tab('test')->select_Obj('*')->search_command();
+		var_dump($ResArr);
 	}
 } 
