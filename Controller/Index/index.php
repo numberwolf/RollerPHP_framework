@@ -43,8 +43,7 @@ class index{
 
     // 渲染html
     public function testDrawView() {
-        $modelObj = system::load_model('hello');
-        $modelArr = $modelObj::testModel();
+        $modelArr = array('hello' => 'world', 'name' => 'myname', 'sex' => 'boy' );
         // var_dump($modelArr);
 
         echo system::drawViews('index',$modelArr)."<br>这是一个html渲染实例";
