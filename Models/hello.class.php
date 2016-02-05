@@ -24,6 +24,8 @@ class hello extends db{
 	public function search() {
 
 		$ResArr = $this->PDO_OBJ->select_Tab('test')->select_Obj('*')->search_command();
-		var_dump($ResArr);
+		// var_dump($ResArr);
+
+		return $ResArr;
 	}
 } 
