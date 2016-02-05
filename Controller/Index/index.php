@@ -24,11 +24,16 @@ class index{
         include system::load_tpl('index');
     }
 
+    // 模型实例 并且渲染html
     public function model(){
         $helloModel = system::load_model('hello');
 
-        $helloModel->search();
-        // $helloModel->hellotest();
+        $result_arr = $helloModel->search();
+
+        // $modelArr = $result_arr[0]; // 一条
+        foreach ($result_arr as $modelArr) {
+            echo system::drawViews('index',$modelArr)."<br>这是一个模型html渲染实例";
+        }
 
     }
 
