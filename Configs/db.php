@@ -1,10 +1,10 @@
 <?php
-/**
+/**************************************************************************
  * Created by PhpStorm.
- * User: Wolf
- * Date: 16-2-4
- * Time: 下午6:56
- */
+ * 入口文件
+ * 作者：NumberWolf
+ * Email：porschegt23@foxmail.com
+ **************************************************************************/
 
 // 配置数据库
 define('DBTYPE','mysql');
@@ -26,5 +26,3 @@ return array(
     'DBCHAR' => DBCHAR,
     'DBTbBG' => DBTbBG
     );
-
-

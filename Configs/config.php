@@ -1,10 +1,10 @@
 <?php
-/**
+/**************************************************************************
  * Created by PhpStorm.
- * User: Wolf
- * Date: 16-2-4
- * Time: 下午6:56
- */
+ * 入口文件
+ * 作者：NumberWolf
+ * Email：porschegt23@foxmail.com
+ **************************************************************************/
 
 // 配置默认入口
 define('Home','Index');
@@ -16,4 +16,3 @@ return array(
     'Cont' => Cont ,
     'Meth' => Meth
     );
-

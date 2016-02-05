@@ -1,10 +1,10 @@
 <?php
-/**
+/**************************************************************************
  * Created by PhpStorm.
- * User: Wolf
- * Date: 16-2-4
- * Time: 下午8:07
- */
+ * 入口文件
+ * 作者：NumberWolf
+ * Email：porschegt23@foxmail.com
+ **************************************************************************/
 
 final class app {
     private $router;
@@ -37,14 +37,14 @@ final class app {
 
         }else{
 
-            include($controller); 
-            $ctrl = new $route_control(); 
+            include($controller);
+            $ctrl = new $route_control();
 
 
             if(!method_exists($ctrl , $route_method)){
                 die('action \'' . $route_method . '\' is not defined!');
             }else{
-                return $ctrl->$route_method(); 
+                return $ctrl->$route_method();
             }
         }
     }

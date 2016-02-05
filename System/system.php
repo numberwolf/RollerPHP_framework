@@ -1,10 +1,10 @@
 <?php
-/**
+/**************************************************************************
  * Created by PhpStorm.
- * User: Wolf
- * Date: 16-2-4
- * Time: 下午8:06
- */
+ * 入口文件
+ * 作者：NumberWolf
+ * Email：porschegt23@foxmail.com
+ **************************************************************************/
 
 if(!defined('CHMOD_ROLLER'))            define('CHMOD_ROLLER',       TRUE);
 /*框架目录*/
