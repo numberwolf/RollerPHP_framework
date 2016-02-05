@@ -113,7 +113,7 @@ final class system {
             $path = MODELS_PATH;
         }
 
-        $file = $path . '/' . $modelName . '.class.php';
+        $file = $path . '/' . $modelName . '.model.php';
 
         if(!file_exists($file)) {
             die('model \'' . $modelName . '\' is not exists');
