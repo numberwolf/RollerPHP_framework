@@ -18,7 +18,7 @@ class index{
         echo "<h1>欢迎使用rollerPHP框架!</h1><br>作者:小老虎<br>邮箱:porschegt23@foxmail.com";
     }
 
-    public function view() {
+    public function tpl() {
         $title = '欢迎使用rollerPHP框架';
         $content = '这是一个模板调用Ex';
         include system::load_tpl('index');
