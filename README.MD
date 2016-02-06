@@ -26,8 +26,8 @@
 |----------index.php 						 // 入口文件     
 
 
+####目前系统数据库封装库仅支持PDO连接，非PDO配置之后会更新    
+####数据库连接如需要memcache，请预先在服务器安装memcache     
 
-
-####目前系统数据库封装库仅支持PDO连接，非PDO配置之后会更新       
 访问：http://HOST/RollerPHP_framework/        
 或者带参数index.php?Home=Index&Cont=index&Meth=start
