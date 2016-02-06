@@ -8,7 +8,7 @@
 
 final class memcacheClass
 {
-	// private static $memcache = new Memcache;
+	private static $memcache = null;
 	
 	public static function init($port = 11111)
 	{
