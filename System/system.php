@@ -56,6 +56,7 @@ header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
 header('Pragma: no-cache');
 
 final class system {
+
     public static function start() {
         return self::load_class('app');
     }
@@ -72,7 +73,7 @@ final class system {
         }
     }
 
-    public static function load_pdo($database = '') {
+    public static function load_pdo($database = '' ,$memSwitch = false ,$memName = 'memcache' ,$memPath = '') {
         $db_config_arr = self::load_config(DB_CONFIG_NAME);
         // $path = CLASSES_PATH.'/'.DB_CONFIG_NAME.'.class.php';
         // include($path);
@@ -90,7 +91,20 @@ final class system {
         $DBpwd = $db_config_arr['DBPASS'];
         $DBCLASS = DB_CONFIG_NAME;
 
-        return new $DBCLASS($DBname,$DBip,$DBuser,$DBpwd);
+        // memcache
+        // if ($memSwitch == true) {
+
+        //     $file = null;
+        //     if ($memPath == '') {
+        //         $file = CLASSES_PATH.'/'.$memName.'.class.php';
+        //     } else {
+        //         $file = $memPath.'/'.$memName.'.class.php';
+        //     }
+
+        //     include($file);
+        // }
+
+        return new $DBCLASS($DBname,$DBip,$DBuser,$DBpwd,$memSwitch);
     }
 
     public static function load_class($className , $path='' , $init = 1) {

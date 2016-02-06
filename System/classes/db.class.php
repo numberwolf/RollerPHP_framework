@@ -4,6 +4,7 @@
  * 作者：NumberWolf
  * Email：porschegt23@foxmail.com
  **************************************************************************/
+// system::load_class('memcache' , '' , 0);
 
 class db{
 
@@ -19,8 +20,10 @@ class db{
     private $sql_str = null;
     private $PDO_OBJ = null;
 
+    private $memcacheObj = null;
+
     // 连接数据库
-    function __construct($DBname,$DBip,$DBuser,$DBpwd){
+    function __construct($DBname,$DBip,$DBuser,$DBpwd,$memSwitch = false){
         $this->DBname = $DBname;
         $this->DBip = $DBip;
         $this->DBuser = $DBuser;
@@ -28,6 +31,12 @@ class db{
 
         try{
             $this->PDO_OBJ = new PDO("mysql:host=$this->DBip;dbname=$this->DBname;",$this->DBuser,$this->DBpwd);
+
+            if ($memSwitch == true) {
+                system::load_class('memcache', '', 0);
+                memcacheClass::init();
+            }
+
         }catch(PDOException $e){
             die("connect fail!".$e->getMessage());
         }
@@ -93,11 +102,19 @@ class db{
     // 查
     public function search_command(){
         $this->sql_str = "SELECT $this->object_str FROM $this->TabName".$this->where_str.$this->other_Str;
-        $sql_query = $this->PDO_OBJ->query($this->sql_str);
-        $returnArr = $sql_query->fetchAll(PDO::FETCH_ASSOC);
-        // 如果不释放的话就会占满空间，无法进行新建一个类中一个函数内两次调用此方法
-        $this->relaseThis();
-        return $returnArr;
+
+        if($returnArr = memcacheClass::getMemCache(md5($this->sql_str))) {
+            return $returnArr;
+        } else {
+            $sql_query = $this->PDO_OBJ->query($this->sql_str);
+            $returnArr = $sql_query->fetchAll(PDO::FETCH_ASSOC);
+
+            // 如果不释放的话就会占满空间，无法进行新建一个类中一个函数内两次调用此方法
+            $this->relaseThis();
+
+            memcacheClass::setMemCache($returnArr);
+            return $returnArr;
+        }
     }
     // 改
     public function update_command(){
