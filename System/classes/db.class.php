@@ -103,9 +103,11 @@ class db{
     public function search_command(){
         $this->sql_str = "SELECT $this->object_str FROM $this->TabName".$this->where_str.$this->other_Str;
 
-        echo memcacheClass::getMemCache(md5($this->sql_str));
+        $key = md5($this->sql_str);
 
-        if($returnArr = memcacheClass::getMemCache(md5($this->sql_str))) {
+        echo memcacheClass::getMemCache($key);
+
+        if($returnArr = memcacheClass::getMemCache($key)) {
             return $returnArr;
         } else {
             echo "line109<br>";
@@ -115,7 +117,7 @@ class db{
             // 如果不释放的话就会占满空间，无法进行新建一个类中一个函数内两次调用此方法
             $this->relaseThis();
 
-            echo memcacheClass::setMemCache($returnArr,md5($this->sql_str));
+            echo memcacheClass::setMemCache($returnArr,$key);
             echo "line117<br>";
             return $returnArr;
         }

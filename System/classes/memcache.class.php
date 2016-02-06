@@ -22,9 +22,9 @@ final class memcacheClass
 
 	public static function setMemCache($value ,$key = '', $time = 1000) {
 
-		if ($key == '') {
-			$key = md5($value);
-		}
+		// if ($key == '') {
+		// 	$key = md5($value);
+		// }
 
 		return self::$memcache->set($key, $value, 0, $time); // 默认缓存时间为1000s
 	}
