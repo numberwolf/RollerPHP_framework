@@ -20,8 +20,6 @@ class db{
     private $sql_str = null;
     private $PDO_OBJ = null;
 
-    private $memcacheObj = null;
-
     // 连接数据库
     function __construct($DBname,$DBip,$DBuser,$DBpwd,$memSwitch = false){
         $this->DBname = $DBname;
@@ -29,15 +27,17 @@ class db{
         $this->DBuser = $DBuser;
         $this->DBpwd = $DBpwd;
 
-        try{
+        try {
             $this->PDO_OBJ = new PDO("mysql:host=$this->DBip;dbname=$this->DBname;",$this->DBuser,$this->DBpwd);
 
             if ($memSwitch == true) {
                 system::load_class('memcache', '', 0);
+                echo "line35<br>";
                 memcacheClass::init();
+                echo "line37<br>";
             }
 
-        }catch(PDOException $e){
+        } catch (PDOException $e) {
             die("connect fail!".$e->getMessage());
         }
 
@@ -106,6 +106,7 @@ class db{
         if($returnArr = memcacheClass::getMemCache(md5($this->sql_str))) {
             return $returnArr;
         } else {
+            echo "line109<br>";
             $sql_query = $this->PDO_OBJ->query($this->sql_str);
             $returnArr = $sql_query->fetchAll(PDO::FETCH_ASSOC);
 
@@ -113,6 +114,7 @@ class db{
             $this->relaseThis();
 
             memcacheClass::setMemCache($returnArr);
+            echo "line117<br>";
             return $returnArr;
         }
     }
