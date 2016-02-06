@@ -105,10 +105,10 @@ class db{
 
         $key = md5($this->sql_str);
 
-        if($memSwitch == true && $returnArr = memcacheClass::getMemCache($key)) {
+        if($returnArr = memcacheClass::getMemCache($key)) {
             echo memcacheClass::getMemCache($key);
             return $returnArr;
-            
+
         } else {
             echo "line109<br>";
             $sql_query = $this->PDO_OBJ->query($this->sql_str);

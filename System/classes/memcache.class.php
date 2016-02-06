@@ -21,13 +21,20 @@ final class memcacheClass
 	}
 
 	public static function setMemCache($value , $time = 1000) {
-
-		return self::$memcache->set($key, $value, 0, $time); // 默认缓存时间为1000s
+		if (self::$memcache != null || self::$memcache) {
+			return self::$memcache->set($key, $value, 0, $time); // 默认缓存时间为1000s
+		} else {
+			return false;
+		}
+		
 	}
 
 	public static function getMemCache($key) {
-
-		return self::$memcache->get($key);
+		if (self::$memcache != null || self::$memcache) {
+			return self::$memcache->get($key);
+		} else {
+			return false;
+		}
 	}
 
 	// final public function releaseMemCache() {
