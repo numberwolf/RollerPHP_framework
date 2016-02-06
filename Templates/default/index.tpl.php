@@ -1,12 +1,13 @@
 <title><?php echo $title; ?></title>
 
 <?php
-/**
+/**************************************************************************
  * Created by PhpStorm.
- * User: Wolf
- * Date: 16-2-4
- * Time: 下午11:56
- */ 
+ * 入口文件
+ * 作者：NumberWolf
+ * Email：porschegt23@foxmail.com
+ **************************************************************************/
 
-echo $content;
+echo 'title:'.$title.'<br>';
+echo 'content:'.$content;
 ?>
