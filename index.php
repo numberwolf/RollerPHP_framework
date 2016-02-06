@@ -6,7 +6,7 @@
  * Email：porschegt23@foxmail.com
  **************************************************************************/
 
-define('rollerPHP' , dirname(__FILE__));
+define('RollerPHP' , dirname(__FILE__));
 define('System' ,'/System');
-include(rollerPHP . System . '/system.php');
+include(RollerPHP . System . '/system.php');
 system::start();
