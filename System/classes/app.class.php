@@ -29,10 +29,10 @@ final class app {
         $module = CONT_PATH . '/' . $route_home;
         $controller = $module . '/' . $route_control . '.php';
 
-        if(!is_dir($module)) die('controller \'' . $route_home . '\' is not dir!');
+        if(!is_dir($module)) die('<h1>RollerPHP: \'' . $route_home . '\' 找不到</h1>');
 
         if(!file_exists($controller)){
-            die('controller \'' . $route_control . '\' is not defined!');
+            die('<h1>RollerPHP:控制器文件 \'' . $route_control . '\' 找不到!');
 
         }else{
 
@@ -41,7 +41,7 @@ final class app {
 
 
             if(!method_exists($ctrl , $route_method)){
-                die('action \'' . $route_method . '\' is not defined!');
+                die('<h1>RollerPHP: \'' . $route_method . '\' 未定义</h1>');
             }else{
                 return $ctrl->$route_method();
             }

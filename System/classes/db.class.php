@@ -21,7 +21,7 @@ class db{
     private $PDO_OBJ = null;
 
     // 连接数据库
-    function __construct($DBname,$DBip,$DBuser,$DBpwd,$memSwitch = false){
+    function __construct($DBname, $DBip, $DBuser, $DBpwd, $memSwitch = false, $memName, $memPath){
         $this->DBname = $DBname;
         $this->DBip = $DBip;
         $this->DBuser = $DBuser;
@@ -31,7 +31,7 @@ class db{
             $this->PDO_OBJ = new PDO("mysql:host=$this->DBip;dbname=$this->DBname;",$this->DBuser,$this->DBpwd);
 
             if ($memSwitch == true) {
-                system::load_class('memcache', '', 0);
+                system::load_class($memName, $memPath, 0);
 
                 memcacheClass::init();
             }
@@ -98,6 +98,7 @@ class db{
         $this->object_str = null;
         $this->TabName = null;
     }
+
     // 查
     public function search_command(){
         $this->sql_str = "SELECT $this->object_str FROM $this->TabName".$this->where_str.$this->other_Str;

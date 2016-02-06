@@ -66,7 +66,7 @@ final class system {
         $file = CONF_PATH . '/' . $configName . '.php';
 
         if(!file_exists($file)){
-            die('config file \'' .$configName. '\' is not exists!');
+            die('<h1>RollerPHP:配置文件 \'' .$configName. '\' 不存在</h1>');
         }else{
 
             return include($file);
@@ -74,6 +74,7 @@ final class system {
     }
 
     public static function load_pdo($database = '' ,$memSwitch = false ,$memName = 'memcache' ,$memPath = '') {
+
         $db_config_arr = self::load_config(DB_CONFIG_NAME);
         // $path = CLASSES_PATH.'/'.DB_CONFIG_NAME.'.class.php';
         // include($path);
@@ -91,20 +92,7 @@ final class system {
         $DBpwd = $db_config_arr['DBPASS'];
         $DBCLASS = DB_CONFIG_NAME;
 
-        // memcache
-        // if ($memSwitch == true) {
-
-        //     $file = null;
-        //     if ($memPath == '') {
-        //         $file = CLASSES_PATH.'/'.$memName.'.class.php';
-        //     } else {
-        //         $file = $memPath.'/'.$memName.'.class.php';
-        //     }
-
-        //     include($file);
-        // }
-
-        return new $DBCLASS($DBname,$DBip,$DBuser,$DBpwd,$memSwitch);
+        return new $DBCLASS($DBname, $DBip, $DBuser, $DBpwd, $memSwitch, $memName, $memPath);
     }
 
     public static function load_class($className , $path='' , $init = 1) {
@@ -114,7 +102,7 @@ final class system {
         $file = $path . '/' . $className . '.class.php';
 
         if(!file_exists($file)){
-            die('class \'' . $className . '\' is not exists!');
+            die('<h1>RollerPHP:class \'' . $className . '\' 不存在</h1>');
 
         }else{
 
@@ -136,7 +124,7 @@ final class system {
         $file = $path . '/' . $modelName . '.model.php';
 
         if(!file_exists($file)) {
-            die('model \'' . $modelName . '\' is not exists');
+            die('<h1>RollerPHP:model \'' . $modelName . '\' 不存在</h1>');
         } else {
             include($file);
             return new $modelName();
@@ -150,7 +138,7 @@ final class system {
         $tplFile = TEMPLATES_PATH . '/' . $style . '/' . $tplName . '.tpl.php';
 
         if(!file_exists($tplFile) ){
-            die('templates/' . $style . '/' . $tplName . '.tpl.php is not exists!');
+            die('<h1>RollerPHP:templates/' . $style . '/' . $tplName . '.tpl.php 不存在</h1>');
         } else {
             return $tplFile;
         }
@@ -165,7 +153,7 @@ final class system {
         $file = $path . '/' . $funcName . '.func.php';
 
         if(!file_exists($file)) {
-            die('function \'' . $funcName . '\' is not exists!');
+            die('<h1>RollerPHP:function \'' . $funcName . '\' 不存在</h1>');
         }else{
             include($file);
         }
