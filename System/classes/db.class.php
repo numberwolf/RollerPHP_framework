@@ -32,9 +32,8 @@ class db{
 
             if ($memSwitch == true) {
                 system::load_class('memcache', '', 0);
-                echo "line35<br>";
+
                 memcacheClass::init();
-                echo "line37<br>";
             }
 
         } catch (PDOException $e) {
@@ -110,8 +109,8 @@ class db{
             return $returnArr;
 
         } else {
-            echo "line109<br>";
-            
+
+
             $sql_query = $this->PDO_OBJ->query($this->sql_str);
             $returnArr = $sql_query->fetchAll(PDO::FETCH_ASSOC);
 
@@ -120,9 +119,9 @@ class db{
 
             if($memSwitch == true ) {
                 echo memcacheClass::setMemCache($returnArr,$key);
-                echo "line116<br>";
+
             }
-            echo "line117<br>";
+
             return $returnArr;
         }
     }

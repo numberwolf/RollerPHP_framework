@@ -12,7 +12,7 @@ class hello extends db{
 	public $PDO_OBJ = null;
 
 	public function __construct() {
-		$this->PDO_OBJ = system::load_pdo('', false);
+		$this->PDO_OBJ = system::load_pdo('', true);
 		echo "数据模型实例";
 	}
 
