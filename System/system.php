@@ -86,11 +86,9 @@ final class system {
             $DBname = $database;
         }
 
-        $DBname = $db_config_arr['DBNAME'];
         $DBip = $db_config_arr['DBHOST'];
         $DBuser = $db_config_arr['DBUSER'];
         $DBpwd = $db_config_arr['DBPASS'];
-        $DBCLASS = DB_CONFIG_NAME;
 
         return new $DBCLASS($DBname,$DBip,$DBuser,$DBpwd);
     }
