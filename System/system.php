@@ -73,10 +73,18 @@ final class system {
         }
     }
 
-    public static function load_pdo() {
+    public static function load_pdo($database = '') {
         $db_config_arr = self::load_config(DB_CONFIG_NAME);
         // $path = CLASSES_PATH.'/'.DB_CONFIG_NAME.'.class.php';
         // include($path);
+
+        $DBname = null;
+
+        if ($database == '') {
+            $DBname = $db_config_arr['DBNAME'];
+        } else {
+            $DBname = $database;
+        }
 
         $DBname = $db_config_arr['DBNAME'];
         $DBip = $db_config_arr['DBHOST'];
