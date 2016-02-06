@@ -103,6 +103,8 @@ class db{
     public function search_command(){
         $this->sql_str = "SELECT $this->object_str FROM $this->TabName".$this->where_str.$this->other_Str;
 
+        echo memcacheClass::getMemCache(md5($this->sql_str));
+
         if($returnArr = memcacheClass::getMemCache(md5($this->sql_str))) {
             return $returnArr;
         } else {
