@@ -1,0 +1,6 @@
+update.sh
+update.sh~
+.idea
+.DS_Store
+*.sh
+*.sh~
