@@ -105,19 +105,23 @@ class db{
 
         $key = md5($this->sql_str);
 
-        if($returnArr = memcacheClass::getMemCache($key)) {
+        if($memSwitch == true && $returnArr = memcacheClass::getMemCache($key)) {
             echo memcacheClass::getMemCache($key);
             return $returnArr;
 
         } else {
             echo "line109<br>";
+            
             $sql_query = $this->PDO_OBJ->query($this->sql_str);
             $returnArr = $sql_query->fetchAll(PDO::FETCH_ASSOC);
 
             // 如果不释放的话就会占满空间，无法进行新建一个类中一个函数内两次调用此方法
             $this->relaseThis();
 
-            echo memcacheClass::setMemCache($returnArr,$key);
+            if($memSwitch == true ) {
+                echo memcacheClass::setMemCache($returnArr,$key);
+                echo "line116<br>";
+            }
             echo "line117<br>";
             return $returnArr;
         }
