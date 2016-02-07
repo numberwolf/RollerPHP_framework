@@ -3,6 +3,7 @@
  * Created by PhpStorm.
  * 作者：NumberWolf
  * Email：porschegt23@foxmail.com
+ * 这是一个控制器例子
  **************************************************************************/
 
 if(!defined('CHMOD_ROLLER')) exit('权限不足!');
