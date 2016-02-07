@@ -58,7 +58,7 @@ final class app {
                 }
 
                 /**
-                 **参数以数组形式
+                 **参数以数组形式传递
                  **/
                 return $ctrl->$route_method($dataArr);
             }

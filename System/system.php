@@ -60,7 +60,7 @@ header('Pragma: no-cache');
 final class system {
 
     public static function start() {
-        
+
         return self::load_class('app');
     }
 
@@ -243,9 +243,11 @@ final class system {
         $returnArr = array();
 
         foreach ($pathArr as $tempArr) {
+            
             foreach($tempArr as $val) {
-                $val = str_replace("__","",$val);
-                $val = str_replace("__","",$val);
+
+                $val = str_replace("__", "", $val);
+                $val = str_replace("__", "", $val);
 
                 array_push($returnArr,$val);
             }
