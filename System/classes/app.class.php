@@ -76,7 +76,7 @@ final class app {
                             // echo "Size: " . ($_FILES[$key]["size"] / 1024) . " Kb<br />";
                             // echo "Stored in: " . $_FILES[$key]["tmp_name"];
 
-                            $path = dirname(dirname(dirname(__FILE__))) . '/Storage/' . $_FILES[$key]["name"];
+                            $path = SOTRAGE_PATH .'/' . $_FILES[$key]["name"];
 
                             move_uploaded_file($_FILES[$key]["tmp_name"], $path);
 

@@ -12,8 +12,6 @@ define('PROJECT_NAME',                  'RollerPHP_framework');
 define('ROLLER_PATH',                   dirname(dirname(__FILE__)));
 /*储存器目录*/
 define('SOTRAGE_PATH',                  ROLLER_PATH.'/Storage');
-/*类、函数目录*/
-define('LIB_PATH',                      ROLLER_PATH . '/Lib');
 /*核心文件目录*/
 define('SYSTEM_PATH',                   ROLLER_PATH . '/System');
 /*函数目录*/
@@ -243,7 +241,7 @@ final class system {
         $returnArr = array();
 
         foreach ($pathArr as $tempArr) {
-            
+
             foreach($tempArr as $val) {
 
                 $val = str_replace("__", "", $val);
