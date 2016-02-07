@@ -47,13 +47,13 @@ final class app {
 
                 foreach ($_GET as $key => $value) {
                     if ($key != 'Home' && $key != 'Cont' && $key != 'Meth') {
-                        array_push($dataArr, array($key => $value));
+                        $dataArr[$key] = $value;
                     }
                 }
 
                 if ($_POST) {
                     foreach ($_POST as $key => $value) {
-                        array_push($dataArr, array($key => $value));
+                        $dataArr[$key] = $value;
                     }
                 }
 
@@ -84,13 +84,13 @@ final class app {
                         }
                     }
 
-                    array_push($dataArr, array('upload_error' => $upload_error_arr));
+                    $dataArr['upload_error'] = $upload_error_arr;
                 }
 
                 /**
                  **参数以数组形式传递
                  **/
-                return $ctrl->$route_method($dataArr[0]);
+                return $ctrl->$route_method($dataArr);
             }
         }
     }
