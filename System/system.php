@@ -251,7 +251,10 @@ final class system {
         }
 
         foreach($returnArr as $key => $value) {
-            $content = str_replace('__'.$value.'__/', ROLLER_PATH.'/?Home='.$value, $content);
+            $rootPath = dirname(ROLLER_PATH);
+
+            $rootPath = str_replace($rootPath,"",ROLLER_PATH);
+            $content = str_replace('__'.$value.'__/', $rootPath.'/?Home='.$value, $content);
         }
 
         return $content;
