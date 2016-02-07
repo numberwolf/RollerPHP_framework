@@ -13,7 +13,9 @@ class index{
 
     }
 
-    public function start() {
+    public function start($dataArr) {
+        echo $dataArr[0]."<hr>";
+
         echo "<h1>欢迎使用rollerPHP框架!</h1><br>作者:NumberWolf<br>邮箱:porschegt23@foxmail.com";
     }
 

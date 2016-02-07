@@ -43,7 +43,24 @@ final class app {
             if(!method_exists($ctrl , $route_method)){
                 die('<h1>RollerPHP: \'' . $route_method . '\' 未定义</h1>');
             }else{
-                return $ctrl->$route_method();
+                $dataArr = array();
+
+                foreach ($_GET as $key => $value) {
+                    if ($key != 'Home' && $key != 'Cont' && $key != 'Meth') {
+                        array_push($dataArr, $value);
+                    }
+                }
+
+                if ($_POST) {
+                    foreach ($_POST as $key => $value) {
+                        array_push($dataArr, $value);
+                    }
+                }
+
+                /**
+                 **参数以数组形式
+                 **/
+                return $ctrl->$route_method($dataArr);
             }
         }
     }

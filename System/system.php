@@ -60,6 +60,7 @@ header('Pragma: no-cache');
 final class system {
 
     public static function start() {
+        
         return self::load_class('app');
     }
 
