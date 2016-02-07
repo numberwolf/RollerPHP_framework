@@ -6,12 +6,14 @@
  **************************************************************************/
 
 if(!defined('CHMOD_ROLLER'))            define('CHMOD_ROLLER',       TRUE);
+/*项目名称*/
+define('PROJECT_NAME',                  'RollerPHP_framework');
 /*框架目录*/
 define('ROLLER_PATH',                   dirname(dirname(__FILE__)));
+/*储存器目录*/
+define('SOTRAGE_PATH',                  ROLLER_PATH.'/Storage');
 /*类、函数目录*/
 define('LIB_PATH',                      ROLLER_PATH . '/Lib');
-/*公用相同类库*/
-define('Common_PATH',                   LIB_PATH . '/common');
 /*核心文件目录*/
 define('SYSTEM_PATH',                   ROLLER_PATH . '/System');
 /*函数目录*/
@@ -28,7 +30,7 @@ define('MODELS_PATH',                   ROLLER_PATH . '/Models');
 define('TEMPLATES_PATH',	            ROLLER_PATH . '/Templates');
 /*视图目录*/
 define('VIEWS_PATH',	                ROLLER_PATH . '/Views');
-/*db config*/
+/*PDO数据库操作 config*/
 define('DB_CONFIG_NAME',                'db');
 
 
@@ -178,42 +180,116 @@ final class system {
         }
 
         fclose($handle);
+        /**  路径 **/
+        $content = self::returnMeth($content);
+        $content = self::returnCont($content);
+        $content = self::returnHome($content);
 
-        $KeyArr = self::getVal($content); // 获得html内所有key
+        /**  值 **/
+        $content = self::getVal($content,$dataArray); // 获得html内所有key
 
-        foreach($KeyArr as $key) {
-            if (array_key_exists($key,$dataArray)) {
-                $content = self::replace_to($dataArray[$key],$content);
-            } else {
-                $content = self::replace_to("<!---RollerPHP这里无参数--->",$content);
+        return $content;
+    }
+
+    private static function returnMeth($content) {
+        $regular = "/____.*?____/ism";
+        preg_match_all($regular, $content, $pathArr);
+
+        $returnArr = array();
+
+        foreach ($pathArr as $tempArr) {
+            foreach($tempArr as $val) {
+                $val = str_replace("____","",$val);
+                $val = str_replace("____","",$val);
+
+                array_push($returnArr,$val);
             }
+        }
+
+        foreach($returnArr as $key => $value) {
+            $content = str_replace('____'.$value.'____', '&Meth='.$value, $content);
+        }
+
+        return $content;
+    }
+
+    private static function returnCont($content) {
+        $regular = "/___.*?___/ism";
+        preg_match_all($regular, $content, $pathArr);
+
+        $returnArr = array();
+
+        foreach ($pathArr as $tempArr) {
+            foreach($tempArr as $val) {
+                $val = str_replace("___","",$val);
+                $val = str_replace("___","",$val);
+
+                array_push($returnArr,$val);
+            }
+        }
+
+        foreach($returnArr as $key => $value) {
+            $content = str_replace('___'.$value.'___/', '&Cont='.$value, $content);
+        }
+
+        return $content;
+    }
+
+    private static function returnHome($content) {
+        $regular = "/__.*?__/ism";
+        preg_match_all($regular, $content, $pathArr);
+
+        $returnArr = array();
+
+        foreach ($pathArr as $tempArr) {
+            foreach($tempArr as $val) {
+                $val = str_replace("__","",$val);
+                $val = str_replace("__","",$val);
+
+                array_push($returnArr,$val);
+            }
+        }
+
+        foreach($returnArr as $key => $value) {
+            $content = str_replace('__'.$value.'__/', ROLLER_PATH.'/?Home='.$value, $content);
         }
 
         return $content;
     }
 
     // 得到key
-    private static function getVal($string) {
+    private static function getVal($string,$dataArray) {
         preg_match_all("/\{\{.*?\}\}/ism", $string, $outArr);
 
         $returnArr = array();
 
-        foreach($outArr[0] as $val) {
-            $val = str_replace("{{","",$val);
-            $val = str_replace("}}","",$val);
+        foreach ($outArr as $tempArr) {
+            foreach($tempArr as $val) {
+                $val = str_replace("{{","",$val);
+                $val = str_replace("}}","",$val);
 
-            array_push($returnArr,$val);
+                array_push($returnArr,$val);
+            }
         }
 
-        return $returnArr;
+        foreach($returnArr as $key) {
+            if (array_key_exists($key,$dataArray)) {
+                $string = self::replace_to_Parameter($dataArray[$key], $string, "/\{\{.*?\}\}/ism");
+            } else {
+                $string = self::replace_to_Parameter("<!---RollerPHP这里无参数--->", $string, "/\{\{.*?\}\}/ism");
+            }
+        }
+        
+        return $string;
     }
 
-    private static function replace_to($element,$string) {
-        $oldStr = "/\{\{.*?\}\}/ism";
+    private static function replace_to_Parameter($element, $string, $regular) {
+        // $oldStr = "/\{\{.*?\}\}/ism";
 
-        return preg_replace($oldStr,$element,$string,1);
+        return preg_replace($regular,$element,$string,1);
     }
 
+    /*********************   endView   ***********************/
     public static function test() {
         echo "test system";
     }

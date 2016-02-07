@@ -36,6 +36,13 @@ class index{
 
     }
 
+    public function uploadFile() {
+        echo '<h1>RollerPHP:文件上传拓展</h1>'
+            .'<form action="" enctype="multipart/form-data" method="post" name="uploadfile">'
+            .'上传文件：<input type="file" name="upfile" /><br>'
+            .'<input type="submit" value="上传" /></form>';
+    }
+
     public function func() {
         system::test();
     }
@@ -49,7 +56,7 @@ class index{
     }
 
     public function hello () {
-        echo "hello RollerPHP";
+        echo "<h1>hello RollerPHP</h1>";
     }
 }
 ?>
