@@ -14,7 +14,7 @@ class index{
     }
 
     public function start($dataArr) {
-        echo $dataArr[0]."<hr>";
+        echo $dataArr['test']."<hr>";
 
         echo "<h1>欢迎使用rollerPHP框架!</h1><br>作者:NumberWolf<br>邮箱:porschegt23@foxmail.com";
     }
@@ -38,11 +38,12 @@ class index{
 
     }
 
-    public function uploadFile() {
-        echo '<h1>RollerPHP:文件上传拓展</h1>'
-            .'<form action="" enctype="multipart/form-data" method="post" name="uploadfile">'
-            .'上传文件：<input type="file" name="upfile" /><br>'
-            .'<input type="submit" value="上传" /></form>';
+    public function uploadFile($dataArr) {
+        // var_dump($dataArr);
+
+        if (count($dataArr['upload_error']) <= 0) {
+            echo "上传成功";
+        }
     }
 
     public function func() {

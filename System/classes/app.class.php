@@ -47,20 +47,50 @@ final class app {
 
                 foreach ($_GET as $key => $value) {
                     if ($key != 'Home' && $key != 'Cont' && $key != 'Meth') {
-                        array_push($dataArr, $value);
+                        array_push($dataArr, array($key => $value));
                     }
                 }
 
                 if ($_POST) {
                     foreach ($_POST as $key => $value) {
-                        array_push($dataArr, $value);
+                        array_push($dataArr, array($key => $value));
                     }
+                }
+
+                if ($_FILES) {
+                    // var_dump($_FILES);
+                    /*
+                    array(1) { ["textFile"]=> array(5) { ["name"]=> string(19) "PoweredByMacOSX.gif" ["type"]=> string(9) "image/gif" ["tmp_name"]=> string(26) "/private/var/tmp/phpigeW2F" ["error"]=> int(0) ["size"]=> int(3726) } } 
+                    */
+                    $upload_error_arr = array();
+
+                    foreach ($_FILES as $key => $value) {
+
+                        if ($_FILES[$key]["error"] > 0) {
+                            // echo "Error: " . $_FILES[$key]["error"] . "<br />";
+
+                            array_push($upload_error_arr, array('upload_errorMsg' => $_FILES[$key]["error"]));
+                        } else {
+                            // echo "Upload: " . $_FILES[$key]["name"] . "<br />";
+                            // echo "Type: " . $_FILES[$key]["type"] . "<br />";
+                            // echo "Size: " . ($_FILES[$key]["size"] / 1024) . " Kb<br />";
+                            // echo "Stored in: " . $_FILES[$key]["tmp_name"];
+
+                            $path = dirname(dirname(dirname(__FILE__))) . '/Storage/' . $_FILES[$key]["name"];
+
+                            move_uploaded_file($_FILES[$key]["tmp_name"], $path);
+
+                            // echo "Stored in: " . dirname(dirname(dirname(__FILE__))) . '/Storage/' . $_FILES[$key]["name"];
+                        }
+                    }
+
+                    array_push($dataArr, array('upload_error' => $upload_error_arr));
                 }
 
                 /**
                  **参数以数组形式传递
                  **/
-                return $ctrl->$route_method($dataArr);
+                return $ctrl->$route_method($dataArr[0]);
             }
         }
     }
