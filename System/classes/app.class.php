@@ -7,7 +7,7 @@
 
 final class app {
     private $router;
-    private $database;
+    // private $database;
 
     public function __construct(){
         $this->router = system::load_config('config');
