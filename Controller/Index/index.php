@@ -18,7 +18,8 @@ class index{
         // var_dump($dataArr);
         // echo $dataArr['test']."<hr>";
 
-        echo "<h1>欢迎使用rollerPHP框架!</h1><br>作者:NumberWolf<br>邮箱:porschegt23@foxmail.com";
+        echo '<img src="'.system::load_storage('RollerPHP_small.png').'" />';
+        echo '<h1>欢迎使用RollerPHP框架!</h1><br>作者:NumberWolf<br>邮箱:porschegt23@foxmail.com';
     }
 
     public function tpl() {
@@ -45,6 +46,8 @@ class index{
 
         if (count($dataArr['upload_error']) <= 0) {
             echo "上传成功";
+        } else {
+            echo var_dump($dataArr['upload_error']);
         }
     }
 

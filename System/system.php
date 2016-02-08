@@ -6,28 +6,49 @@
  **************************************************************************/
 
 if(!defined('CHMOD_ROLLER'))            define('CHMOD_ROLLER',       TRUE);
-/*项目名称*/
-define('PROJECT_NAME',                  'RollerPHP_framework');
+
 /*框架目录*/
 define('ROLLER_PATH',                   dirname(dirname(__FILE__)));
+/*项目名称*/
+define('PROJECT_NAME',                  str_replace('/','',str_replace(dirname(ROLLER_PATH),'',ROLLER_PATH)));
+
+/*储存器名字*/
+define('SOTRAGE_NAME',                  'Storage');
+/*核心文件名字*/
+define('SYSTEM_NAME',                   'System');
+/*函数名字*/
+define('FUNC_NAME',                     'functions');
+/*框架核心类库文件名字*/
+define('CLASSES_NAME',                  'classes');
+/*配置文件名字*/
+define('CONF_NAME',                     'Configs');
+/*控制器名字*/
+define('CONT_NAME',                     'Controller');
+/*模型名字*/
+define('MODELS_NAME',                   'Models');
+/*模板名字*/
+define('TEMPLATES_NAME',                'Templates');
+/*视图名字*/
+define('VIEWS_NAME',                    'Views');
+
 /*储存器目录*/
-define('SOTRAGE_PATH',                  ROLLER_PATH.'/Storage');
+define('SOTRAGE_PATH',                  ROLLER_PATH.'/'.SOTRAGE_NAME);
 /*核心文件目录*/
-define('SYSTEM_PATH',                   ROLLER_PATH . '/System');
+define('SYSTEM_PATH',                   ROLLER_PATH . '/'.SYSTEM_NAME);
 /*函数目录*/
-define('FUNC_PATH',                     SYSTEM_PATH . '/functions');
+define('FUNC_PATH',                     SYSTEM_PATH . '/'.FUNC_NAME);
 /*框架核心类库文件目录*/
-define('CLASSES_PATH',                  SYSTEM_PATH . '/classes');
+define('CLASSES_PATH',                  SYSTEM_PATH . '/'.CLASSES_NAME);
 /*配置文件目录*/
-define('CONF_PATH',                     ROLLER_PATH . '/Configs');
+define('CONF_PATH',                     ROLLER_PATH . '/'.CONF_NAME);
 /*控制器目录*/
-define('CONT_PATH',                     ROLLER_PATH . '/Controller');
+define('CONT_PATH',                     ROLLER_PATH . '/'.CONT_NAME);
 /*模型目录*/
-define('MODELS_PATH',                   ROLLER_PATH . '/Models');
+define('MODELS_PATH',                   ROLLER_PATH . '/'.MODELS_NAME);
 /*模板目录*/
-define('TEMPLATES_PATH',	            ROLLER_PATH . '/Templates');
+define('TEMPLATES_PATH',	            ROLLER_PATH . '/'.TEMPLATES_NAME);
 /*视图目录*/
-define('VIEWS_PATH',	                ROLLER_PATH . '/Views');
+define('VIEWS_PATH',	                ROLLER_PATH . '/'.VIEWS_NAME);
 /*PDO数据库操作 config*/
 define('DB_CONFIG_NAME',                'db');
 
@@ -50,6 +71,9 @@ if (get_magic_quotes_gpc()) {
 error_reporting(E_ALL ^ E_NOTICE);
 ob_start();
 
+// $PHP_SELF = $_SERVER['PHP_SELF'];
+// $url = 'http://'.$_SERVER['HTTP_HOST'].substr($PHP_SELF,0,strrpos($PHP_SELF,'/')+1);
+
 header('content-type:text/html;charset=utf-8');
 header('Cache-Control: no-cache, no-store, max-age=0, must-revalidate');
 header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
@@ -57,7 +81,10 @@ header('Pragma: no-cache');
 
 final class system {
 
-    public static function start() {
+    private static $RootPath_URL = null;
+
+    public static function init() {
+        // echo PROJECT_NAME;
 
         return self::load_class('app');
     }
@@ -72,6 +99,10 @@ final class system {
 
             return include($file);
         }
+    }
+
+    public static function load_storage($fileName) {
+        return 'http://'.$_SERVER['HTTP_HOST'].'/'.PROJECT_NAME.'/'.SOTRAGE_NAME.'/'.$fileName;
     }
 
     public static function load_pdo($database = '' ,$memSwitch = false ,$memName = 'memcache' ,$memPath = '') {
