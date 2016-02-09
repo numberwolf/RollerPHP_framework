@@ -2,12 +2,26 @@
 <img src="Storage/RollerPHP_small.png" />           
 
 ###RollerPHP Beta1
-======================================================================
-####APACHE 2.0 LICENSE     
+======================================================================   
 ####开发者：	NumberWolf
 ####邮箱：		porschegt23@foxmail.com
 ####时间：		2016/02/05
 ———————————-———————————-———————————-————————
+      
+ <p>* Copyright [2016] [Chang Yanlong]</p>
+
+ <p>* Licensed under the Apache License, Version 2.0 (the "License");</p>
+ <p>* you may not use this file except in compliance with the License.</p>
+ <p>* You may obtain a copy of the License at</p>
+
+ <p>   http://www.apache.org/licenses/LICENSE-2.0</p>
+
+ <p>* Unless required by applicable law or agreed to in writing, software</p>
+ <p>* distributed under the License is distributed on an "AS IS" BASIS,</p>
+ <p>* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</p>
+ <p>* See the License for the specific language governing permissions and</p>
+ <p>* limitations under the License.</p>
+
 
 ####框架结构:  
 
