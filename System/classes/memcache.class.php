@@ -6,6 +6,7 @@
  * Email：porschegt23@foxmail.com
  * memcached 
  * APACHE 2.0 LICENSE
+ * http://www.apache.org/licenses/LICENSE-2.0 
  **************************************************************************/
 
 final class memcacheClass
