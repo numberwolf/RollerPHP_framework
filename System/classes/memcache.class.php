@@ -5,6 +5,7 @@
  * 作者：NumberWolf
  * Email：porschegt23@foxmail.com
  * memcached 
+ * APACHE 2.0 LICENSE
  **************************************************************************/
 
 final class memcacheClass

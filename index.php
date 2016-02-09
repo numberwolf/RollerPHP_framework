@@ -4,6 +4,7 @@
  * 入口文件
  * 作者：NumberWolf
  * Email：porschegt23@foxmail.com
+ * APACHE 2.0 LICENSE
  **************************************************************************/
 
 define('RollerPHP' , dirname(__FILE__));

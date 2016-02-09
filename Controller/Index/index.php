@@ -4,6 +4,7 @@
  * 作者：NumberWolf
  * Email：porschegt23@foxmail.com
  * 这是一个控制器例子
+ * APACHE 2.0 LICENSE
  **************************************************************************/
 
 if(!defined('CHMOD_ROLLER')) exit('权限不足!');
