@@ -354,9 +354,9 @@ final class system {
         ***/
         
         $keyArrNum = 0;
-        foreach ($dataArray as $dataModelArr) {
-
-            $returnKeyArr = $returnArr[$keyArrNum];
+        // foreach ($dataArray as $dataModelArr) {
+        foreach ($returnArr as $returnKeyArr) {
+            $dataModelArr = $dataArray[$keyArrNum];
 
             foreach($returnKeyArr as $key) {
                 if (array_key_exists($key,$dataModelArr)) {
