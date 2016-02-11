@@ -93,6 +93,11 @@ final class app {
 
                             $path = SOTRAGE_PATH .'/' . $_FILES[$key]["name"];
 
+                            if ($_GET['class']) {
+                                // echo "<hr>class:".$_GET['class'];
+                                $path = SOTRAGE_PATH .'/' .$_GET['class'].'/'.$_FILES[$key]["name"];
+                            }
+
                             move_uploaded_file($_FILES[$key]["tmp_name"], $path);
 
                             // echo "Stored in: " . dirname(dirname(dirname(__FILE__))) . '/Storage/' . $_FILES[$key]["name"];

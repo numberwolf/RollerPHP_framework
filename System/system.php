@@ -116,8 +116,14 @@ final class system {
         }
     }
 
-    public static function load_storage($fileName) {
-        return 'http://'.$_SERVER['HTTP_HOST'].'/'.PROJECT_NAME.'/'.SOTRAGE_NAME.'/'.$fileName;
+    public static function load_storage($fileName, $className = '') {
+        $path = SOTRAGE_NAME;
+
+        if ($class != '') {
+            $path = SOTRAGE_NAME.'/'.$className;
+        }
+
+        return 'http://'.$_SERVER['HTTP_HOST'].'/'.PROJECT_NAME.'/'.$path.'/'.$fileName;
     }
 
     public static function load_pdo($database = '' ,$memSwitch = false ,$memName = 'memcache' ,$memPath = '') {
