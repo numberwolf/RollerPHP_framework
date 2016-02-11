@@ -45,11 +45,25 @@ class index{
 
     // 模型实例 并且渲染html
     public function model(){
-        $helloModel = system::load_model('hello');
+        $helloModel = system::load_model('hello'); 
 
-        $result_arr = $helloModel->search();
-
-        // $modelArr = $result_arr[0]; // 一条
+        $result_arr = $helloModel->search();// 从数据库搜索查询
+        /**
+        数据格式: [{ 
+            [0]=> array(4) {
+                ["hello"]=> string(5) "hello" 
+                ["name"]=> string(4) "name" 
+                ["sex"]=> string(3) "sex" 
+                [" boy "]=> string(5) " boy " 
+            } 
+            [1]=> array(4) { 
+                ["hello"]=> string(5) "hello" 
+                ["name"]=> string(4) "name" 
+                ["sex"]=> string(3) "sex" 
+                [" boy "]=> string(5) " boy "  
+            }
+        }]
+        **/
         echo system::drawViews('index',$result_arr)."<br>这是一个模型html渲染实例";
 
     }
