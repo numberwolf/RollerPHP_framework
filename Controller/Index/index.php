@@ -68,16 +68,6 @@ class index{
 
     }
 
-    public function uploadFile($dataArr) {
-        // var_dump($dataArr);
-
-        if (count($dataArr['upload_error']) <= 0) {
-            echo "上传成功";
-        } else {
-            echo var_dump($dataArr['upload_error']);
-        }
-    }
-
     public function func() {
         system::test();
     }
@@ -87,6 +77,22 @@ class index{
         $modelArr = array(array('hello' => 'RollerPHP', 'name' => 'myname', 'sex' => 'boy' ),array('hello' => 'RollerPHP2', 'name' => 'myname2', 'sex' => 'boy2' ));
 
         echo system::drawViews('index',$modelArr)."<br>这是一个html渲染实例";
+    }
+
+    // 上传文件html
+    public function testUploadView() {
+        echo system::drawViews('upload');
+    }
+
+    // 上传文件结果回调
+    public function uploadFile($dataArr) {
+        var_dump($dataArr);
+
+        if (count($dataArr['upload_error']) <= 0) {
+            echo "上传成功";
+        } else {
+            echo var_dump($dataArr['upload_error']);
+        }
     }
 
     public function hello () {
