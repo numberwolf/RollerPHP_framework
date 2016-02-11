@@ -50,9 +50,7 @@ class index{
         $result_arr = $helloModel->search();
 
         // $modelArr = $result_arr[0]; // 一条
-        foreach ($result_arr as $modelArr) {
-            echo system::drawViews('index',$modelArr)."<br>这是一个模型html渲染实例";
-        }
+        echo system::drawViews('index',$result_arr)."<br>这是一个模型html渲染实例";
 
     }
 
@@ -72,8 +70,7 @@ class index{
 
     // 渲染html
     public function testDrawView() {
-        $modelArr = array('hello' => 'RollerPHP', 'name' => 'myname', 'sex' => 'boy' );
-        // var_dump($modelArr);
+        $modelArr = array(array('hello' => 'RollerPHP', 'name' => 'myname', 'sex' => 'boy' ),array('hello' => 'RollerPHP2', 'name' => 'myname2', 'sex' => 'boy2' ));
 
         echo system::drawViews('index',$modelArr)."<br>这是一个html渲染实例";
     }

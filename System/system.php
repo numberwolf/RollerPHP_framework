@@ -322,12 +322,51 @@ final class system {
             }
         }
 
-        foreach($returnArr as $key) {
-            if (array_key_exists($key,$dataArray)) {
-                $string = self::replace_to_Parameter($dataArray[$key], $string, "/\{\{.*?\}\}/ism");
-            } else {
-                $string = self::replace_to_Parameter("<!---RollerPHP这里无参数--->", $string, "/\{\{.*?\}\}/ism");
+        $certainVal = $returnArr[0];
+        $certainNum = null;
+
+        foreach ($returnArr as $key => $value) {
+
+            if ($value == $certainVal && $certainNum > 0) {
+                break;
             }
+
+            $certainNum ++;
+        }
+
+        $returnArr = array_chunk($returnArr,$certainNum,false);
+
+        /***
+        $returnArr [{ 
+            [0]=> array(4) {
+                [0]=> string(5) "hello" 
+                [1]=> string(4) "name" 
+                [2]=> string(3) "sex" 
+                [3]=> string(5) " boy " 
+            } 
+            [1]=> array(4) { 
+                [4]=> string(5) "hello" 
+                [5]=> string(4) "name" 
+                [6]=> string(3) "sex" 
+                [7]=> string(5) " boy " 
+            }
+        }]
+        ***/
+        
+        $keyArrNum = 0;
+        foreach ($dataArray as $dataModelArr) {
+
+            $returnKeyArr = $returnArr[$keyArrNum];
+
+            foreach($returnKeyArr as $key) {
+                if (array_key_exists($key,$dataModelArr)) {
+                    $string = self::replace_to_Parameter($dataModelArr[$key], $string, "/\{\{.*?\}\}/ism");
+                } else {
+                    $string = self::replace_to_Parameter("<!---RollerPHP这里无参数--->", $string, "/\{\{.*?\}\}/ism");
+                }
+            }
+
+            $keyArrNum++;
         }
         
         return $string;
