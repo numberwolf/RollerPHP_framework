@@ -116,11 +116,11 @@ final class system {
         }
     }
 
-    public static function load_storage($fileName, $className = '') {
+    public static function load_storage($fileName, $class = '') {
         $path = SOTRAGE_NAME;
 
         if ($class != '') {
-            $path = SOTRAGE_NAME.'/'.$className;
+            $path = SOTRAGE_NAME.'/'.$class;
         }
 
         return 'http://'.$_SERVER['HTTP_HOST'].'/'.PROJECT_NAME.'/'.$path.'/'.$fileName;
