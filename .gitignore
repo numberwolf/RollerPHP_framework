@@ -3,7 +3,6 @@
 *.idea
 *.DS_Store
 test
-test*
 document
 document*
 introduce*
