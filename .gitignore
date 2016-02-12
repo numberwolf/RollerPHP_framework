@@ -3,6 +3,8 @@
 *.idea
 *.DS_Store
 test
+test.php
+test.sh
 document
 document*
 introduce*
