@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>RollerPHP文档</title>
+	<meta charset="utf-8" />
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+	<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+	<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+	<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<style type="text/css">
+	.jumbotron {
+		padding:5px;margin:15px;
+		/*border-top-right-radius: 100%;border-bottom-right-radius: 100%;*/
+		border-radius: 50%;
+	}
+
+	.titleDiv {
+		padding:5px;margin-left:15px;margin-right: 15px;margin-top: 30px;margin-bottom: 0px;
+	}
+
+	.contentDiv {
+		padding:5px;padding-bottom: 20px;margin:15px;margin-top: 0px;
+		background-color: rgb(247,241,244);
+	}
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-inverse" style="border-radius: 0">
+        <div class="container" style="border-radius: 0">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+				  <span class="sr-only">Toggle navigation</span>
+				  <span class="icon-bar"></span>
+				  <span class="icon-bar"></span>
+				  <span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#"><font color="white">RollerPHP文档 </font>- 翻滚吧!PHP</a>
+				</div>
+				<!-- <div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#contact">Contact</a></li>
+					<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Action</a></li>
+							<li><a href="#">Another action</a></li>
+							<li><a href="#">Something else here</a></li>
+							<li role="separator" class="divider"></li>
+							<li class="dropdown-header">Nav header</li>
+							<li><a href="#">Separated link</a></li>
+							<li><a href="#">One more separated link</a></li>
+						</ul>
+					</li>
+				</ul> -->
+			</div><!--/.nav-collapse -->
+        </div>
+    </nav>
+
+    <div id="struct" class="titleDiv" >
+        <h3>目录结构</h3>
+    </div>
+
+    <div style="width:100%;height:350px;">
+    	<div class="col-md-6" style="width:100%">
+			<table class="table table-striped" style="width:100%">
+				<thead>
+				  <tr>
+				    <!-- <th>#</th> -->
+				    <th>结构</th>
+				    <th>作用</th>
+				  </tr>
+				</thead>
+				<tbody>
+				  <tr>
+				    <!-- <td>1</td> -->
+				    <td>Configs</td>
+				    <td>配置</td>
+				  </tr>
+
+				  <tr>
+				    <!-- <td>2</td> -->
+				    <td>Controller</td>
+				    <td>控制器文件</td>
+				  </tr>
+
+				  <tr>
+				    <!-- <td>3</td> -->
+				    <td>Models</td>
+				    <td>数据模型</td>
+				  </tr>
+
+				  <tr>
+				    <!-- <td>4</td> -->
+				    <td>Storage</td>
+				    <td>存储</td>
+				  </tr>
+
+				  <tr>
+				    <!-- <td>5</td> -->
+				    <td>System</td>
+				    <td>核心/路由</td>
+				  </tr>
+
+				  <tr>
+				    <!-- <td>6</td> -->
+				    <td>Templates</td>
+				    <td>模板</td>
+				  </tr>
+
+				  <tr>
+				    <!-- <td>7</td> -->
+				    <td>Views</td>
+				    <td>视图</td>
+				  </tr>
+
+				  <tr>
+				    <!-- <td>8</td> -->
+				    <td>index.php</td>
+				    <td>入口文件</td>
+				  </tr>
+				</tbody>
+			</table>
+        </div>
+    </div>
+    <!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
+    <div id="config" class="titleDiv" >
+        <h3>配置文件</h3>
+    </div>
+
+    <div class="contentDiv">
+    	<h5>Configs/config.php - 入口配置</h5>
+    	<div class="highlight" style="margin-bottom: 20px">
+			<code class="language-html" data-lang="html">
+				<font color="#666666">// 配置默认入口</font><br>
+				define('Home','Index'); <font color="#666666">//此处配置入口控制器目录</font><br>
+				define('Cont','index'); <font color="#666666">//此处配置入口控制器文件</font><br>
+				define('Meth','start'); <font color="#666666">//此处配置入口控制器初始化方法</font>
+			</code>
+		</div>
+		<br>
+
+		<h5>Configs/db.php - 数据库配置</h5>
+    	<div class="highlight">
+			<code class="language-html" data-lang="html">
+				<font color="#666666">// 配置数据库</font><br>
+				define('DBTYPE','mysql'); <font color="#666666">//此处配置数据库类型</font><br>
+				define('DBNAME','test'); <font color="#666666">//此处配置数据库名</font><br>
+				define('DBHOST','127.0.0.1'); <font color="#666666">//此处配置IP</font><br>
+				define('DBPORT',''); <font color="#666666">//此处配置端口</font><br>
+				define('DBUSER','root'); <font color="#666666">//此处配置用户名</font><br>
+				define('DBPASS','porsche'); <font color="#666666">//此处配置密码</font><br>
+				define('DBCHAR','utf8'); <font color="#666666">//此处配置字符集</font><br>
+				define('DBTbBG',''); <font color="#666666">//此处配置数据表前缀
+			</code>
+		</div>
+    </div>
+
+    <div id="controller" class="titleDiv" >
+        <h3>控制器目录</h3>
+    </div>
+    <div class="contentDiv">
+    	<h5>级别示意：</h5>
+    	<div class="highlight">
+    		<code class="language-html" data-lang="html">
+    			// 目录<br>
+		    	Controller/Home文件夹/控制器文件.php<br>
+		    </code>
+	    </div>
+	    <br>
+
+	    <h5>控制器访问：</h5>
+    	<div class="highlight">
+    		<code class="language-html" data-lang="html">
+    			在访问时候url具体为：http://host/RollerPHP/index.php?Home=<b><u>Home文件夹</u></b>&Cont=<b><u>控制器文件名(无.php后缀)</u></b>&Meth=<b><u>方法名</u></b>
+		    </code>
+		    <br>
+		    <code class="language-html" data-lang="html"><br>
+    			当无参数时候：http://host/RollerPHP/<br>
+    			默认参数均为<b>Configs/config.php</b>配置文件参数<br>
+
+				define('Home',<b><u>'Index'</u></b>); <font color="#666666">//此处配置入口控制器目录</font><br>
+				define('Cont',<b><u>'index'</u></b>); <font color="#666666">//此处配置入口控制器文件</font><br>
+				define('Meth',<b><u>'start'</u></b>); <font color="#666666">//此处配置入口控制器初始化方法</font>
+		    </code>
+
+	    </div>
+    </div>
+
+    <div id="system" class="titleDiv" >
+        <h3>系统 / 路由</h3>
+    </div>
+    <div class="col-md-6" style="width:100%;margin-bottom: 30px;">
+		<table class="table table-bordered" style="width:100%">
+			<thead>
+			  <tr>
+			    <th colspan="4">System - 目录</th>
+			  </tr>
+			</thead>
+			<tbody>
+			  <tr>
+			    <td rowspan="3">classes</td>
+			    <td>app.class.php</td>
+			    <td colspan="2">核心文件</td>
+
+			  </tr>
+			  <tr>
+			    <td>db.class.php</td>
+			    <td colspan="2">数据库操作类 - 目前仅支持PDO</td>
+
+			  </tr>
+			  <tr>
+			    <td>memcache.class.php</td>
+			    <td colspan="2">memcache缓存类</td>
+
+			  </tr>
+			  <!--- 分割 -->
+
+			  <tr>
+			    <td>functions</td>
+			    <td colspan="2">common.func.php</td>
+			    <td>共用函数文件</td>
+			  </tr>
+
+			  <tr>
+			    <td>system.php</td>
+			    <td colspan="3">路由系统文件</td>
+			  </tr>
+			</tbody>
+		</table>
+    </div>
+
+    <div id="system" class="titleDiv" >
+        <h3>入门：Hello World!</h3>
+    </div>
+    <div class="contentDiv">
+    	<h5>控制器Controller/Index/index.php:</h5>
+    	<div class="highlight">
+    		<code class="language-html" data-lang="html"><br>
+    			<font color="#666666">
+    				//在页面中访问&nbsp;
+    				<u>.../?Home=Index&Cont=index&Meth=start</u>
+    				&nbsp;(index控制器,start方法)
+    			</font><br>
+    			if(!defined('CHMOD_ROLLER')) exit('权限不足!');<br>
+    			class index{
+    			&nbsp;&nbsp;&nbsp;&nbsp;<font color="#666666">//index控制器</font><br>
+
+				&nbsp;&nbsp;public function start($dataArr) {
+				&nbsp;&nbsp;&nbsp;&nbsp;<font color="#666666">//start方法</font><br>
+
+				&nbsp;&nbsp;&nbsp;&nbsp;// var_dump($dataArr);
+				&nbsp;&nbsp;&nbsp;&nbsp;<font color="#666666">//得到参数以字典形式传递</font><br>
+
+				&nbsp;&nbsp;&nbsp;&nbsp;echo 'Hello World';<br>
+				<!-- &nbsp;&nbsp;&nbsp;echo '&lt;h1&gt;欢迎使用RollerPHP框架!&lt;/h1&gt;&lt;br&gt;<br>
+				&nbsp;&nbsp;&nbsp;作者:NumberWolf&lt;br&gt;邮箱:porschegt23@foxmail.com';<br> -->
+				&nbsp;&nbsp;}<br>
+				}
+		    </code>
+	    </div>
+	    <br>
+    </div>
+
+    <div id="system" class="titleDiv" >
+        <h3>入门：Models数据!</h3>
+    </div>
+    <div class="contentDiv">
+    	<h5>数据模型:Models/hello.model.php:</h5>
+    	<div class="highlight">
+    		<code class="language-html" data-lang="html">
+    			system::load_class('db' , '' , 0);<font color="#666666">//载入数据库操作类，(类名[，额外路径[，是否new]])</font><br>
+
+				class hello extends db{<br>
+				&nbsp;&nbsp;public $PDO_OBJ = null; <font color="#666666">// PDO对象</font><br>
+
+				&nbsp;&nbsp;public function __construct() {<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;$this->PDO_OBJ = system::load_pdo('', true); <font color="#666666">// (数据库名称_可以不填则为配置默认[,是否开启memcache])</font><br>
+
+				&nbsp;&nbsp;}<br>
+				<br>
+				&nbsp;&nbsp;public function search() {<br>
+
+				&nbsp;&nbsp;&nbsp;&nbsp;$ResArr = $this->PDO_OBJ->select_Tab('test')->select_Obj('*')->search_command(); <font color="#666666">// 查询test表内的所有*字段数据</font><br>
+
+				&nbsp;&nbsp;&nbsp;&nbsp;<font color="#666666">// var_dump($ResArr);</font><br>
+
+				&nbsp;&nbsp;&nbsp;&nbsp;return $ResArr;<br>
+				&nbsp;&nbsp;}<br>
+				}<br>
+		    </code>
+	    </div>
+	    <br>
+
+	    <h5>控制器Controller/Index/index.php:</h5>
+    	<div class="highlight">
+    		<code class="language-html" data-lang="html">
+    			<font color="#666666">
+    				//在页面中访问&nbsp;
+    				<u>.../?Home=Index&Cont=index&Meth=model</u>
+    			</font><br>
+
+			    public function model(){<br>
+			    &nbsp;&nbsp;$helloModel = system::load_model('hello');
+			    <font color="#666666">// 载入Model</font><br><br> 
+
+			    &nbsp;&nbsp;$result_arr = $helloModel->search();
+			    <font color="#666666">// 从数据库搜索查询</font><br><br>
+			    <font color="#666666">
+			    &nbsp;&nbsp;/**<br>
+			    &nbsp;&nbsp;数据格式: [{ <br>
+			    &nbsp;&nbsp;[0]=> array(4) {<br>
+			    &nbsp;&nbsp;&nbsp;&nbsp;["hello"]=> string(5) "hello" <br>
+			    &nbsp;&nbsp;&nbsp;&nbsp;["name"]=> string(4) "name" <br>
+			    &nbsp;&nbsp;&nbsp;&nbsp;["sex"]=> string(3) "sex" <br>
+			    &nbsp;&nbsp;&nbsp;&nbsp;[" boy "]=> string(5) " boy " <br>
+			    &nbsp;&nbsp;} <br>
+			    &nbsp;&nbsp;[1]=> array(4) { <br>
+			    &nbsp;&nbsp;&nbsp;&nbsp;["hello"]=> string(5) "hello" <br>
+			    &nbsp;&nbsp;&nbsp;&nbsp;["name"]=> string(4) "name" <br>
+			    &nbsp;&nbsp;&nbsp;&nbsp;["sex"]=> string(3) "sex" <br>
+			    &nbsp;&nbsp;&nbsp;&nbsp;[" boy "]=> string(5) " boy "  <br>
+			    &nbsp;&nbsp;}<br>
+			    &nbsp;&nbsp;}]<br>
+			    &nbsp;&nbsp;**/<br>
+				</font>
+				&nbsp;&nbsp;var_dump($result_arr);<br>
+				}<br>
+		    </code>
+	    </div>
+	    <br>
+    </div><!--end models-->
+
+    <div id="system" class="titleDiv" >
+        <h3>入门：Views视图!</h3>
+    </div>
+    <div class="contentDiv">
+    	<h5>控制器Controller/Index/index.php:</h5>
+    	<div class="highlight">
+    		<code class="language-html" data-lang="html">
+    			<font color="#666666">
+    				//在页面中访问&nbsp;
+    				<u>.../?Home=Index&Cont=index&Meth=testDrawView</u>
+    			</font><br>
+    			<font color="#666666">// 渲染html</font><br>
+			    public function testDrawView() {<br>
+			    &nbsp;&nbsp;<font color="#666666">// 参数数组</font><br>
+			    &nbsp;&nbsp;$modelArr = array(array('hello' => 'RollerPHP', 'name' => 'myname', 'sex' => 'boy' ),array('hello' => 'RollerPHP2', 'name' => 'myname2', 'sex' => 'boy2' ));<br><br>
+
+			    &nbsp;&nbsp;<font color="#666666">// 渲染html，drawViews(视图名[,参数数组])</font><br>
+			    &nbsp;&nbsp;echo system::drawViews('index',$modelArr)."&lt;br&gt;这是一个html渲染实例";<br>
+			    }<br>
+		    </code>
+	    </div>
+	    <br>
+
+	    <h5>视图Views/index.html:</h5>
+    	<div class="highlight">
+    		<code class="language-html" data-lang="html">
+    			&lt;!DOCTYPE html&gt;<br>
+				&lt;html&gt;<br>
+				&lt;head&gt;<br>
+				&nbsp;&nbsp;&lt;meta charset="utf-8" /&gt;<br>
+				&nbsp;&nbsp;&lt;title&gt;这是一个视图层&lt;/title&gt;<br>
+				&nbsp;&nbsp;&lt;script src="http://code.jquery.com/jquery-1.11.1.min.js"&gt;&lt;/script&gt;<br>
+
+				&nbsp;&nbsp;&lt;script&gt;<br>
+				&nbsp;&nbsp;<font color="#666666">&lt;-- 这里的从对应<u>控制器所渲染数据 格式为：<b>{{key}}</b></u> --&gt;</font><br>
+
+				&nbsp;&nbsp;$(document).ready(function() {<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;$("#view").html("第一波:测试键hello ,值:{{hello}},测试键name 值:{{name}},测试键sex 值:{{sex}},测试键boy 值:{{ boy }}&lt;br&gt;"<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;+ "第二波:测试键hello 值:{{hello}},测试键name 值:{{name}},测试键sex 值:{{sex}},测试键boy 值:{{ boy }}"
+				      );<br>
+				&nbsp;&nbsp;});<br>
+				&nbsp;&nbsp;&lt;/script&gt;<br>
+				&lt;/head&gt;<br>
+
+				&lt;body&gt;<br>
+				&nbsp;&nbsp;&lt;div id="view"&gt;&lt;/div&gt;<br>
+				&lt;/body&gt;<br>
+				&lt;/html&gt;<br>
+
+		    </code>
+	    </div>
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
