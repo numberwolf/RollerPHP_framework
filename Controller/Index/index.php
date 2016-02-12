@@ -86,6 +86,10 @@ class index{
         echo system::drawViews('upload');
     }
 
+    public function testPostView() {
+        echo system::drawViews('test');
+    }
+
     // 上传文件结果回调
     public function uploadFile($dataArr) {
 
@@ -94,6 +98,10 @@ class index{
         } else {
             echo var_dump($dataArr['upload_error']);
         }
+    }
+
+    public function textPost($dataArr){
+        var_dump($dataArr);
     }
 
     public function hello () {
