@@ -16,9 +16,18 @@
 	<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<style type="text/css">
 	.jumbotron {
-		padding:5px;margin:15px;
+		padding:15px;
+		/*margin:15px;*/
 		/*border-top-right-radius: 100%;border-bottom-right-radius: 100%;*/
-		border-radius: 50%;
+		/*border-radius: 50%;*/
+	}
+
+	.bottomDiv {
+		color: #999999;
+		background-color: black;
+		margin-bottom: 0px;
+		padding:30px;
+		height: 450px;
 	}
 
 	.titleDiv {
@@ -43,11 +52,11 @@
 				</button>
 				<a class="navbar-brand" href="#"><font color="white">RollerPHP文档 </font>- 翻滚吧!PHP</a>
 				</div>
-				<!-- <div class="navbar-collapse collapse">
+				<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#about">About</a></li>
-					<li><a href="#contact">Contact</a></li>
+					<!-- <li class="active"><a href="#">Home</a></li> -->
+					<li><a href="#about">关于开发者</a></li>
+					<!-- <li><a href="#contact">Contact</a></li>
 					<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
 						<ul class="dropdown-menu">
@@ -59,8 +68,8 @@
 							<li><a href="#">Separated link</a></li>
 							<li><a href="#">One more separated link</a></li>
 						</ul>
-					</li>
-				</ul> -->
+					</li> -->
+				</ul>
 			</div><!--/.nav-collapse -->
         </div>
     </nav>
@@ -186,7 +195,7 @@
     </div>
 
     <div class="contentDiv">
-    	<h5>Configs/config.php - 入口配置</h5>
+    	<h4>Configs/config.php - 入口配置</h4>
     	<div class="highlight" style="margin-bottom: 20px">
 			<code class="language-html" data-lang="html">
 				<font color="#666666">// 配置默认入口</font><br>
@@ -197,7 +206,7 @@
 		</div>
 		<br>
 
-		<h5>Configs/db.php - 数据库配置</h5>
+		<h4>Configs/db.php - 数据库配置</h4>
     	<div class="highlight">
 			<code class="language-html" data-lang="html">
 				<font color="#666666">// 配置数据库</font><br>
@@ -208,7 +217,7 @@
 				define('DBUSER','root'); <font color="#666666">//此处配置用户名</font><br>
 				define('DBPASS','porsche'); <font color="#666666">//此处配置密码</font><br>
 				define('DBCHAR','utf8'); <font color="#666666">//此处配置字符集</font><br>
-				define('DBTbBG',''); <font color="#666666">//此处配置数据表前缀
+				define('DBTbBG',''); <font color="#666666">//此处配置数据表前缀</font>
 			</code>
 		</div>
     </div>
@@ -217,7 +226,7 @@
         <h3>控制器目录</h3>
     </div>
     <div class="contentDiv">
-    	<h5>级别示意：</h5>
+    	<h4>级别示意：</h4>
     	<div class="highlight">
     		<code class="language-html" data-lang="html">
     			// 目录<br>
@@ -226,7 +235,7 @@
 	    </div>
 	    <br>
 
-	    <h5>控制器访问：</h5>
+	    <h4>控制器访问：</h4>
     	<div class="highlight">
     		<code class="language-html" data-lang="html">
     			在访问时候url具体为：http://host/RollerPHP/index.php?Home=<b><u>Home文件夹</u></b>&Cont=<b><u>控制器文件名(无.php后缀)</u></b>&Meth=<b><u>方法名</u></b>
@@ -291,7 +300,7 @@
         <h3>入门：Hello World!</h3>
     </div>
     <div class="contentDiv">
-    	<h5>控制器Controller/Index/index.php:</h5>
+    	<h4>控制器Controller/Index/index.php:</h4>
     	<div class="highlight">
     		<code class="language-html" data-lang="html"><br>
     			<font color="#666666">
@@ -323,7 +332,7 @@
         <h3>入门：Models数据!</h3>
     </div>
     <div class="contentDiv">
-    	<h5>数据模型:Models/hello.model.php:</h5>
+    	<h4>数据模型:Models/hello.model.php:</h4>
     	<div class="highlight">
     		<code class="language-html" data-lang="html">
     			system::load_class('db' , '' , 0);<font color="#666666">//载入数据库操作类，(类名[，额外路径[，是否new]])</font><br>
@@ -349,7 +358,7 @@
 	    </div>
 	    <br>
 
-	    <h5>控制器Controller/Index/index.php:</h5>
+	    <h4>控制器Controller/Index/index.php:</h4>
     	<div class="highlight">
     		<code class="language-html" data-lang="html">
     			<font color="#666666">
@@ -392,7 +401,7 @@
         <h3>入门：Views视图!</h3>
     </div>
     <div class="contentDiv">
-    	<h5>控制器Controller/Index/index.php:</h5>
+    	<h4>控制器Controller/Index/index.php:</h4>
     	<div class="highlight">
     		<code class="language-html" data-lang="html">
     			<font color="#666666">
@@ -411,7 +420,7 @@
 	    </div>
 	    <br>
 
-	    <h5>视图Views/index.html:</h5>
+	    <h4>视图Views/index.html:</h4>
     	<div class="highlight">
     		<code class="language-html" data-lang="html">
     			&lt;!DOCTYPE html&gt;<br>
@@ -439,6 +448,146 @@
 
 		    </code>
 	    </div>
+    </div>
+
+    <div id="upload" class="titleDiv" >
+        <h3>入门：上传文件 (以及关于URL以及Get参数)</h3>
+    </div>
+    <div class="contentDiv">
+    	<h4>视图Views/upload.html:</h4>
+    	<div class="highlight">
+    		<code class="language-html" data-lang="html">
+    			<font color="#666666">
+    				//在页面中访问&nbsp;
+    				<u>.../?Home=Index&Cont=index&Meth=testUploadView</u>
+    			</font><br>
+
+    			<font color="black"><br>
+    				<p>form表单中的url说明:__Home文件夹名__/___控制器名___/____方法名____[&参数1[&参数2[&...]]]</p>
+    				<p>此处class参数，指存储目录Storage下的指定文件夹，如果不指定的话则存储在Storage根目录下面</p>
+    				<p>以上为关于Get参数的传递以及路径URL代码规范
+    				</p>
+    			</font>
+    			&lt;form action="__Index__/___index___/____uploadFile____&class=temp" enctype="multipart/form-data" method="post" name="uploadfile"&lt;<br>
+				&lt;input type="file" name="textFile" /&lt;&lt;br&lt;<br>
+				&lt;input type="submit" value="上传" /&lt;&lt;/form&lt;<br>
+
+		    </code>
+	    </div>
+	    <br><br>
+
+	    <h4>控制器Controller/Index/index:</h4>
+    	<div class="highlight">
+    		<code class="language-html" data-lang="html">
+    			<font color="black">
+    				testUploadView是用于渲染上传文件html页面
+    				<p>uploadFile用于接收上传结果回调,$dataArr是回调结果返回的数据.</p>
+    				<p>
+    					$dataArr['upload_error']元素是一个数组,存储报错文件和报错描述,如果没有的话则上传成功!(上传之前记得文件夹权限)
+    				</p>
+    				<p>以上为关于Get参数的传递以及路径URL代码规范
+    				</p>
+    			</font>
+
+    			// 上传文件html<br>
+			    public function testUploadView() {<br>
+			    &nbsp;&nbsp;echo system::drawViews('upload');<br>
+			    }<br>
+
+			    // 上传文件结果回调<br>
+			    public function uploadFile($dataArr) {<br>
+
+			    &nbsp;&nbsp;if (count($dataArr['upload_error']) <= 0) {<br>
+			    &nbsp;&nbsp;&nbsp;&nbsp;echo "上传成功";<br>
+			    &nbsp;&nbsp;} else {<br>
+			    &nbsp;&nbsp;&nbsp;&nbsp;echo var_dump($dataArr['upload_error']);<br>
+			    &nbsp;&nbsp;}<br>
+			    }<br>
+
+		    </code>
+	    </div>
+	    <br>
+    </div>
+
+    <div id="post" class="titleDiv" >
+        <h3>入门：POST参数的处理接收</h3>
+    </div>
+    <div class="contentDiv">
+    	<h4>控制器Controller/Index/index.php:</h4>
+    	<div class="highlight">
+    		<code class="language-html" data-lang="html"><br>
+    			<font color="#666666">
+    				//在页面中访问&nbsp;
+    				<u>.../?Home=Index&Cont=index&Meth=testPostView</u><br>
+    			</font><br>
+    			<font color="black">
+	    			<p>(1)POST参数,例如在Views视图层的html文件中,以form表单POST形式传递</p>
+	    			例如在Views/test.html中form表单中：
+    			</font>
+    			<p>url:__Index__/___index___/____testPost____,
+    			</p>
+    			<p>data:{parameter:"helloworld"}
+    			</p>
+    			<font color="black">
+	    			这个时候就是传递参数键为 "parameter"，值为 "helloworld". <br>在index控制器中以testPost方法处理<br><hr>
+	    			<p>(2)下面就是index.php控制器中testPost处理:</p>
+    			</font>
+
+    			<font color="#666666">
+    				// 渲染test.html视图
+    			</font><br>
+
+    			public function testPostView() {<br>
+			    &nbsp;&nbsp;echo system::drawViews('test');<br>
+			    }<br>
+
+			    <font color="#666666">
+			    	// 得到Post参数进行处理,均在$dataArr中,例如:$dataArr['parameter']
+			    </font><br>
+
+			    public function textPost($dataArr){<br>
+			    &nbsp;&nbsp;var_dump($dataArr);<br>
+			    }<br>
+
+		    </code>
+	    </div>
+	    <br>
+    </div>
+
+    <div id="about" class="bottomDiv">
+    	<div style="float:left;width:50%;">
+    		<h1>关于开发者</h1>
+	        <p><a href="mailto:porschegt23@foxmail.com">发送邮件：porschegt23@foxmail.com</a></p>
+	        <p>
+	        	Github:
+	        	<a href="https://github.com/numberwolf" >https://github.com/numberwolf</a>
+	        </p>
+	        <p>
+	        	Coding.net:
+	        	<a href="https://coding.net/u/numberwolf/project" >https://coding.net/u/numberwolf/project</a>
+	        </p>
+    	</div>
+        <div style="float:left;width:50%">
+        	<h2>APACHE 2.0 LICENSE</h2>
+	 		<p>* Copyright [2016] [<a href="#about">Chang Yanlong</a>]</p>
+
+	 		<p>* Licensed under the Apache License, Version 2.0 (the "License");</p>
+	 		<p>* you may not use this file except in compliance with the License.</p>
+	 		<p>* You may obtain a copy of the License at</p>
+
+	    	<p>
+	    		<a href="http://www.apache.org/licenses/LICENSE-2.0">
+	    			http://www.apache.org/licenses/LICENSE-2.0
+	    		</a>
+	    	</p>
+
+	 		<p>* Unless required by applicable law or agreed to in writing, software</p>
+	 		<p>* distributed under the License is distributed on an "AS IS" BASIS,</p>
+	 		<p>* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</p>
+	 		<p>* See the License for the specific language governing permissions and</p>
+	 		<p>* limitations under the License.</p>
+        </div>
+        
     </div>
 
 </body>
