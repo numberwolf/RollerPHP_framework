@@ -1,4 +1,3 @@
-测试中。。请勿打扰           
 <img src="Storage/RollerPHP_small.png" />           
 
 ###RollerPHP Beta1
