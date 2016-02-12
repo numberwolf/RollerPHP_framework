@@ -1,5 +1,5 @@
 <?php
-/**************************************************************************
+/*
  * Created by PhpStorm.
  * 作者：NumberWolf
  * Email：porschegt23@foxmail.com
@@ -18,7 +18,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
 
- **************************************************************************/
+ */
 
 // namespace Models\Mysql\hello;
 system::load_class('db' , '' , 0);
@@ -27,7 +27,7 @@ class hello extends db{
 	public $PDO_OBJ = null;
 
 	public function __construct() {
-		$this->PDO_OBJ = system::load_pdo('', true);
+		$this->PDO_OBJ = system::load_pdo('', true); // 当为true时候打开memcache缓存
 		echo "数据模型实例,已开启缓存";
 	}
 

@@ -86,7 +86,6 @@ class index{
 
     // 上传文件结果回调
     public function uploadFile($dataArr) {
-        var_dump($dataArr);
 
         if (count($dataArr['upload_error']) <= 0) {
             echo "上传成功";
