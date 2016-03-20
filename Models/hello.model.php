@@ -14,7 +14,6 @@
 
  */
 
-namespace Models\hello;
 \RSystem\system::load_class('db' , '' , 0);
 
 class hello extends db{
