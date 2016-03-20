@@ -40,7 +40,7 @@ class db{
             $this->PDO_OBJ = new PDO("mysql:host=$this->DBip;dbname=$this->DBname;",$this->DBuser,$this->DBpwd);
 
             if ($memSwitch == true) {
-                system::load_class($memName, $memPath, 0);
+                \RSystem\system::load_class($memName, $memPath, 0);
 
                 memcacheClass::init();
             }

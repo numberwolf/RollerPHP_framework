@@ -32,6 +32,8 @@ class index{
         echo '<h1>欢迎使用RollerPHP框架!</h1><br>作者:NumberWolf<br>邮箱:porschegt23@foxmail.com';
     }
 
+
+
     public function tpl() {
         $title = '欢迎使用rollerPHP框架';
         $content = '这是一个模板调用Ex';
@@ -59,7 +61,7 @@ class index{
             }
         }]
         **/
-        echo system::drawViews('index',$result_arr)."<br>这是一个模型html渲染实例";
+        echo \RSystem\system::drawViews('index',$result_arr)."<br>这是一个模型html渲染实例";
 
     }
 
