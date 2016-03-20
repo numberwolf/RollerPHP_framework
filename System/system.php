@@ -181,7 +181,7 @@ final class system {
             die('<h1>RollerPHP:model \'' . $modelName . '\' 不存在</h1>');
         } else {
             include($file);
-            $modelSpaceName = MODELS_NAMESPACE."\\$modelName\\".$modelName;
+            $modelSpaceName = "\\".MODELS_NAMESPACE."\\$modelName\\".$modelName;
             return new $modelSpaceName();
         }
     }
