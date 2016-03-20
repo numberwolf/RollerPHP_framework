@@ -46,7 +46,9 @@ final class app {
         }else{
 
             include($controller);
-            $ctrl = new $route_control();
+            $contAsName = $route_home.'_'.$route_control;
+            use Controller\$route_home\$route_control as $contAsName;
+            $ctrl = new $contAsName\$route_control();
 
 
             if(!method_exists($ctrl , $route_method)){

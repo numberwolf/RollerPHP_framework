@@ -12,8 +12,8 @@
  * You may obtain a copy of the License at
 
     http://www.apache.org/licenses/LICENSE-2.0
-
  **************************************************************************/
+namespace Controller\Index\index;
 
 if(!defined('CHMOD_ROLLER')) exit('权限不足!');
 
