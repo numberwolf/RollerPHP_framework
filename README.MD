@@ -1,6 +1,6 @@
 <img src="Storage/RollerPHP_small.png" />           
 
-*####更新  2016/03/20
+* 更新  2016/03/20
 	* 控制器加入命名空间    
 
 ###RollerPHP Beta2.0
