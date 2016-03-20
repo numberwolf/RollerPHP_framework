@@ -346,13 +346,13 @@
     	<h4>数据模型:Models/hello.model.php:</h4>
     	<div class="highlight">
     		<code class="language-html" data-lang="html">
-    			system::load_class('db' , '' , 0);<font color="#666666">//载入数据库操作类，(类名[，额外路径[，是否new]])</font><br>
+    			\RSystem\system::load_class('db' , '' , 0);<font color="#666666">//载入数据库操作类，(类名[，额外路径[，是否new]])</font><br>
 
 				class hello extends db{<br>
 				&nbsp;&nbsp;public $PDO_OBJ = null; <font color="#666666">// PDO对象</font><br>
 
 				&nbsp;&nbsp;public function __construct() {<br>
-				&nbsp;&nbsp;&nbsp;&nbsp;$this->PDO_OBJ = system::load_pdo('', true); <font color="#666666">// (数据库名称_可以不填则为配置默认[,是否开启memcache])</font><br>
+				&nbsp;&nbsp;&nbsp;&nbsp;$this->PDO_OBJ = \RSystem\system::load_pdo('', true); <font color="#666666">// (数据库名称_可以不填则为配置默认[,是否开启memcache])</font><br>
 
 				&nbsp;&nbsp;}<br>
 				<br>
@@ -378,7 +378,7 @@
     			</font><br>
 
 			    public function model(){<br>
-			    &nbsp;&nbsp;$helloModel = system::load_model('hello');
+			    &nbsp;&nbsp;$helloModel = \RSystem\system::load_model('hello');
 			    <font color="#666666">// 载入Model</font><br><br> 
 
 			    &nbsp;&nbsp;$result_arr = $helloModel->search();
@@ -425,7 +425,7 @@
 			    &nbsp;&nbsp;$modelArr = array(array('hello' => 'RollerPHP', 'name' => 'myname', 'sex' => 'boy' ),array('hello' => 'RollerPHP2', 'name' => 'myname2', 'sex' => 'boy2' ));<br><br>
 
 			    &nbsp;&nbsp;<font color="#666666">// 渲染html，drawViews(视图名[,参数数组])</font><br>
-			    &nbsp;&nbsp;echo system::drawViews('index',$modelArr)."&lt;br&gt;这是一个html渲染实例";<br>
+			    &nbsp;&nbsp;echo \RSystem\system::drawViews('index',$modelArr)."&lt;br&gt;这是一个html渲染实例";<br>
 			    }<br>
 		    </code>
 	    </div>
@@ -502,7 +502,7 @@
 
     			// 上传文件html<br>
 			    public function testUploadView() {<br>
-			    &nbsp;&nbsp;echo system::drawViews('upload');<br>
+			    &nbsp;&nbsp;echo \RSystem\system::drawViews('upload');<br>
 			    }<br>
 
 			    // 上传文件结果回调<br>
@@ -549,7 +549,7 @@
     			</font><br>
 
     			public function testPostView() {<br>
-			    &nbsp;&nbsp;echo system::drawViews('test');<br>
+			    &nbsp;&nbsp;echo \RSystem\system::drawViews('test');<br>
 			    }<br>
 
 			    <font color="#666666">
