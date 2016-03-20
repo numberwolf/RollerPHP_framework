@@ -63,6 +63,9 @@ define('VIEWS_PATH',	                ROLLER_PATH . '/'.VIEWS_NAME);
 /*PDO数据库操作 config*/
 define('DB_CONFIG_NAME',                'db');
 
+/*数据模型 命名空间前缀*/
+define('MODELS_NAMESPACE', 'Models');
+
 
 if (get_magic_quotes_gpc()) {
     function stripslashes_deep($value) {
@@ -178,7 +181,8 @@ final class system {
             die('<h1>RollerPHP:model \'' . $modelName . '\' 不存在</h1>');
         } else {
             include($file);
-            return new $modelName();
+            $modelSpaceName = MODELS_NAMESPACE."\\$modelName\\".$modelName;
+            return new $modelSpaceName();
         }
     }
 
