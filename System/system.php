@@ -14,6 +14,7 @@
 
     http://www.apache.org/licenses/LICENSE-2.0
  **************************************************************************/
+namespace RSystem;
 
 if(!defined('CHMOD_ROLLER'))            define('CHMOD_ROLLER',       TRUE);
 
@@ -89,8 +90,8 @@ header('Cache-Control: no-cache, no-store, max-age=0, must-revalidate');
 header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
 header('Pragma: no-cache');
 
-// include(CONT_PATH.'index.php');
-// $test = new Controller\Index\test();
+// require_once(CONT_PATH.'/Index/index.php');
+// $t = new Controller\Index\index();
 
 
 final class system {
@@ -98,8 +99,8 @@ final class system {
     private static $RootPath_URL = null;
 
     public static function init() {
-        self::load_func('app');
-        // include('app.php');
+        // self::load_func('app');
+        return include('app.php');
     }
 
     public static function load_config($configName) {
@@ -109,7 +110,6 @@ final class system {
         if(!file_exists($file)){
             die('<h1>RollerPHP:配置文件 \'' .$configName. '\' 不存在</h1>');
         }else{
-
             return include($file);
         }
     }

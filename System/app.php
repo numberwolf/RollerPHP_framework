@@ -16,7 +16,7 @@
 
  **************************************************************************/
 
-$app_router = system::load_config('config');
+$app_router = \RSystem\system::load_config('config');
 Roller($app_router);
 
 function Roller($app_router) {
@@ -41,9 +41,8 @@ function Roller($app_router) {
     }else{
 
         include($controller);
-        $contNameSpaceName = 'Controller\Index\index';
+        $contNameSpaceName = "Controller\\$route_home\\$route_home";
         $ctrl = new $contNameSpaceName();
-
 
         if(!method_exists($ctrl , $route_method)){
             die('<h1>RollerPHP: \'' . $route_method . '\' 未定义</h1>');

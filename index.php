@@ -23,4 +23,4 @@
 define('RollerPHP' , dirname(__FILE__));
 define('System' ,'/System');
 include(RollerPHP . System . '/system.php');
-system::init();
+\RSystem\system::init();

@@ -43,7 +43,6 @@ function Roller($app_router) {
         include($controller);
         $ctrl = new $route_control();
 
-
         if(!method_exists($ctrl , $route_method)){
             die('<h1>RollerPHP: \'' . $route_method . '\' 未定义</h1>');
         }else{

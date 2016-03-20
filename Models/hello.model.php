@@ -15,7 +15,7 @@
  */
 
 // namespace Models\Mysql\hello;
-system::load_class('db' , '' , 0);
+\RSystem\system::load_class('db' , '' , 0);
 
 class hello extends db{
 	public $PDO_OBJ = null;
