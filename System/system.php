@@ -1,5 +1,7 @@
 <?php
 /**************************************************************************
+ * * 核心路由
+
  * Created by PhpStorm.
  * 作者：NumberWolf
  * Email：porschegt23@foxmail.com
@@ -87,17 +89,20 @@ header('Cache-Control: no-cache, no-store, max-age=0, must-revalidate');
 header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
 header('Pragma: no-cache');
 
+// include(CONT_PATH.'index.php');
+// $test = new Controller\Index\test();
+
+
 final class system {
 
     private static $RootPath_URL = null;
 
     public static function init() {
-        // echo PROJECT_NAME;
-
-        return self::load_class('app');
+        self::load_func('app');
+        // include('app.php');
     }
 
-    public static function load_config($configName ) {
+    public static function load_config($configName) {
 
         $file = CONF_PATH . '/' . $configName . '.php';
 

@@ -1,4 +1,5 @@
 <?php
+// namespace Controller\Index;
 /**************************************************************************
  * Created by PhpStorm.
  * 作者：NumberWolf
@@ -13,7 +14,7 @@
 
     http://www.apache.org/licenses/LICENSE-2.0
  **************************************************************************/
-namespace Controller\Index\index;
+
 
 if(!defined('CHMOD_ROLLER')) exit('权限不足!');
 
@@ -98,8 +99,14 @@ class index{
         var_dump($dataArr);
     }
 
-    public function hello () {
+    public function hello() {
         echo "<h1>hello RollerPHP</h1>";
+    }
+}
+
+class test {
+    function __construct(){
+        echo __METHOD__."<br>";
     }
 }
 ?>
