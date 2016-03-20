@@ -44,7 +44,7 @@ class index{
     public function model(){
         $helloModel = \RSystem\system::load_model('hello'); 
 
-        //$result_arr = $helloModel->search();// 从数据库搜索查询
+        $result_arr = $helloModel->search();// 从数据库搜索查询
         /**
         数据格式: [{ 
             [0]=> array(4) {
