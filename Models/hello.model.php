@@ -21,7 +21,7 @@ class hello extends db{
 	public $PDO_OBJ = null;
 
 	public function __construct() {
-		$this->PDO_OBJ = system::load_pdo('', true); // 当为true时候打开memcache缓存
+		$this->PDO_OBJ = \RSystem\system::load_pdo('', true); // 当为true时候打开memcache缓存
 		echo "数据模型实例,已开启缓存";
 	}
 
