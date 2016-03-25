@@ -15,10 +15,11 @@
     http://www.apache.org/licenses/LICENSE-2.0
  **************************************************************************/
 namespace Controller\Index;
+\RSystem\system::load_cont('Test', 'test');
 
 if(!defined('CHMOD_ROLLER')) exit('权限不足!');
 
-class index{
+class index extends \Controller\Test\test{
 
     public function __construct() {
         // echo __METHOD__;
@@ -29,7 +30,8 @@ class index{
         // echo $dataArr['test']."<hr>";
 
         echo '<img src="'.\RSystem\system::load_storage('RollerPHP_small.png','temp').'" />';
-        echo '<h1>欢迎使用RollerPHP框架!</h1><br>作者:NumberWolf<br>邮箱:porschegt23@foxmail.com';
+        echo '<h1>欢迎使用RollerPHP框架!</h1><br>作者:NumberWolf<br>邮箱:porschegt23@foxmail.com<br>';
+        $this->test_cont();
     }
 
 

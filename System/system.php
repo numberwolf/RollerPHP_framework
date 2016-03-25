@@ -90,7 +90,6 @@ ob_start();
 
 header('content-type:text/html;charset=utf-8');
 header('Cache-Control: no-cache, no-store, max-age=0, must-revalidate');
-header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
 header('Pragma: no-cache');
 
 // require_once(CONT_PATH.'/Index/index.php');
@@ -198,9 +197,22 @@ final class system {
         }
     }
 
+    public static function load_cont($homeName, $contName ,$path = '') {
+        if($path == '') {
+            $path = CONT_PATH;
+        }
+
+        $file = $path.'/'.$homeName.'/'.$contName.'.php';
+
+        if(!file_exists($file)) {
+            die('<h1>RollerPHP:Controller \'' . $contName . '\' 不存在</h1>');
+        }else{
+            include($file);
+        }
+    }
 
 
-    public static function load_func($funcName , $path='') {
+    public static function load_func($funcName , $path = '') {
         if($path == '') {
             $path = FUNC_PATH;
         }
