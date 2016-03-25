@@ -318,9 +318,10 @@
     				&nbsp;(index控制器,start方法)
     			</font><br>
     			<font color="blue">namespace Controller\Index;</font><font color="#666666">// 命名空间规则：Controller\文件夹</font><br>
+    			<font color="blue">\RSystem\system::load_cont('Test', 'test');</font><font color="#666666">// 如果需要继承test控制器(位于Controller/Test/test.php)</font><br>
 
     			if(!defined('CHMOD_ROLLER')) exit('权限不足!');<br>
-    			class index{
+    			class index extends \Controller\Test\test {
     			&nbsp;&nbsp;&nbsp;&nbsp;<font color="#666666">//index控制器</font><br>
 
 				&nbsp;&nbsp;public function start($dataArr) {
