@@ -230,7 +230,7 @@ final class system {
      渲染视图引擎  采用{{.*}}
      ************
      ************/
-    public static function drawViews($filename,$dataArray,$path = '') {
+        public static function drawViews($filename,$dataArray,$path = '') {
         if ($path == '') {
             $path = VIEWS_PATH;
         }
@@ -244,6 +244,8 @@ final class system {
         }
 
         fclose($handle);
+
+        $content = self::returnView($content);
         /**  路径 **/
         $content = self::returnMeth($content);
         $content = self::returnCont($content);
@@ -251,6 +253,14 @@ final class system {
 
         /**  值 **/
         $content = self::getVal($content,$dataArray); // 获得html内所有key
+
+        return $content;
+    }
+
+    private static function returnView($content) {
+        //VIEWS_PATH
+        $regular = "/____VIEWPATH____/ism";
+        $content = str_replace('____VIEWPATH____', VIEWS_NAME, $content);
 
         return $content;
     }

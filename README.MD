@@ -1,6 +1,6 @@
-<img src="Storage/RollerPHP_small.png" />                  
-	* 2016/03/20,控制器加入命名空间(具体反馈请看文档http://123.56.154.87/RollerDoc/introduce.html)
-		* 控制器命名:空间规则, <font color="blue">namespace Controller\Home名称</font> 
+<img src="Storage/RollerPHP_small.png" />  
+* 2016/03/30,更新视图层路由路径                 
+* 2016/03/20,控制器加入命名空间(具体反馈请看文档http://123.56.154.87/RollerDoc/introduce.html),控制器命名:空间规则, <font color="blue">namespace Controller\Home名称</font> 
 	  
 #### 翻滚吧 PHP!      
 ###RollerPHP V1.0
