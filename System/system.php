@@ -149,11 +149,12 @@ final class system {
     }
 
     public static function load_class($className , $path = '' , $init = 1) {
+        $file = '';
         if('' == $path) {
-            $path = CLASSES_PATH;
+            $file = CLASSES_PATH. '/' . $className . '.class.php';
+        } else {
+            $file = CLASSES_PATH.'/'.$path . '/' . $className . '.class.php';
         }
-
-        $file = CLASSES_PATH.'/'.$path . '/' . $className . '.class.php';
 
         if(!file_exists($file)){
             die('<h1>RollerPHP:class \'' . $className . '\' 不存在</h1>');
@@ -171,11 +172,14 @@ final class system {
     }
 
     public static function load_model($modelName, $path = '') {
-        if('' == $path) {
-            $path = MODELS_PATH;
-        }
 
-        $file = MODELS_PATH.'/'.$path . '/' . $modelName . '.model.php';
+        $file = '';
+
+        if('' == $path) {
+            $file = MODELS_PATH.'/' . $modelName . '.model.php';
+        } else {
+            $file = MODELS_PATH.'/'.$path . '/' . $modelName . '.model.php';
+        }
 
         // echo $file;
 
@@ -201,11 +205,14 @@ final class system {
     }
 
     public static function load_cont($homeName, $contName ,$path = '') {
-        if($path == '') {
-            $path = CONT_PATH;
-        }
 
-        $file = $path.'/'.$homeName.'/'.$contName.'.php';
+        $file = '';
+
+        if($path == '') {
+            $path = CONT_PATH.'/'.$homeName.'/'.$contName.'.php';
+        } else {
+            $file = CONT_PATH.'/'.$path.'/'.$homeName.'/'.$contName.'.php';
+        }
 
         if(!file_exists($file)) {
             die('<h1>RollerPHP:Controller \'' . $contName . '\' 不存在</h1>');
@@ -216,10 +223,14 @@ final class system {
 
 
     public static function load_func($funcName , $path = '') {
+
+        $file = '';
+
         if($path == '') {
-            $path = FUNC_PATH;
+            $file = FUNC_PATH.'/' . $funcName . '.func.php';
+        } else {
+            $file = FUNC_PATH.'/'.$path.'/' . $funcName . '.func.php';
         }
-        $file = $path . '/' . $funcName . '.func.php';
 
         if(!file_exists($file)) {
             die('<h1>RollerPHP:function \'' . $funcName . '\' 不存在</h1>');
@@ -234,11 +245,14 @@ final class system {
      ************
      ************/
     public static function drawViews($filename,$dataArray,$path = '') {
-        if ($path == '') {
-            $path = VIEWS_PATH;
-        }
-        $file = $path . '/' . $filename . '.html';
+        $file = '';
 
+        if ($path == '') {
+            $file = VIEWS_PATH. '/' . $filename . '.html';
+        } else {
+            $file = VIEWS_PATH. '/' . $path . '/' . $filename . '.html';
+        }
+        
         $handle = fopen($file, 'r');
         $content = '';
 
