@@ -50,12 +50,14 @@ function Roller($app_router) {
         }else{
             $dataArr = array();
 
+            // 把get参数载入进数组
             foreach ($_GET as $key => $value) {
                 if ($key != 'Home' && $key != 'Cont' && $key != 'Meth') {
                     $dataArr[$key] = $value;
                 }
             }
 
+            // 把post参数载入
             if ($_POST) {
                 foreach ($_POST as $key => $value) {
                     $dataArr[$key] = $value;
