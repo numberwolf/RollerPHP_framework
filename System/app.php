@@ -23,7 +23,6 @@ function Roller($app_router) {
     //// Controller
     // 选取目录Home(Index默认)
     $route_home = preg_match('/^[a-zA-Z0-9]/' , $_GET['Home']) ? $_GET['Home'] : $app_router['Home'];
-    echo $route_home;
 
     // 选取页面Controller
     $route_control = preg_match('/^[a-zA-Z0-9]/' , $_GET['Cont']) ? $_GET['Cont'] : $app_router['Cont'];
@@ -42,7 +41,8 @@ function Roller($app_router) {
     }else{
 
         include($controller);
-        $contNameSpaceName = "Controller\\$route_home\\$route_home";
+        $contNameSpaceName = "\\Controller\\$route_home\\$route_control";
+        // echo $contNameSpaceName;
         $ctrl = new $contNameSpaceName();
 
         if(!method_exists($ctrl , $route_method)){
