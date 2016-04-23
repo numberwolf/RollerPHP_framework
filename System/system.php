@@ -57,9 +57,9 @@ define('CONT_PATH',                     ROLLER_PATH . '/'.CONT_NAME);
 /*模型目录*/
 define('MODELS_PATH',                   ROLLER_PATH . '/'.MODELS_NAME);
 /*模板目录*/
-define('TEMPLATES_PATH',	            ROLLER_PATH . '/'.TEMPLATES_NAME);
+define('TEMPLATES_PATH',                ROLLER_PATH . '/'.TEMPLATES_NAME);
 /*视图目录*/
-define('VIEWS_PATH',	                ROLLER_PATH . '/'.VIEWS_NAME);
+define('VIEWS_PATH',                    ROLLER_PATH . '/'.VIEWS_NAME);
 /*PDO数据库操作 config*/
 define('DB_CONFIG_NAME',                'db');
 
@@ -67,23 +67,23 @@ define('DB_CONFIG_NAME',                'db');
 define('MODELS_NAMESPACE', 'Models');
 
 
-if (get_magic_quotes_gpc()) {
-    function stripslashes_deep($value) {
-        $value = is_array($value) ?
-            array_map('stripslashes_deep', $value) :
-            stripslashes($value);
+// if (get_magic_quotes_gpc()) {
+//     function stripslashes_deep($value) {
+//         $value = is_array($value) ?
+//             array_map('stripslashes_deep', $value) :
+//             stripslashes($value);
 
-        return $value;
-    }
+//         return $value;
+//     }
 
-    $_POST = array_map('stripslashes_deep', $_POST);
-    $_GET = array_map('stripslashes_deep', $_GET);
-    $_COOKIE = array_map('stripslashes_deep', $_COOKIE);
-    $_REQUEST = array_map('stripslashes_deep', $_REQUEST);
-}
+//     $_POST = array_map('stripslashes_deep', $_POST);
+//     $_GET = array_map('stripslashes_deep', $_GET);
+//     $_COOKIE = array_map('stripslashes_deep', $_COOKIE);
+//     $_REQUEST = array_map('stripslashes_deep', $_REQUEST);
+// }
 
-error_reporting(E_ALL ^ E_NOTICE);
-ob_start();
+// error_reporting(E_ALL ^ E_NOTICE);
+// ob_start();
 
 // $PHP_SELF = $_SERVER['PHP_SELF'];
 // $url = 'http://'.$_SERVER['HTTP_HOST'].substr($PHP_SELF,0,strrpos($PHP_SELF,'/')+1);
@@ -102,7 +102,7 @@ final class system {
 
     public static function init() {
         // self::load_func('app');
-        return include('app.php');
+        return include_once('app.php');
     }
 
     public static function load_config($configName) {
@@ -112,7 +112,7 @@ final class system {
         if(!file_exists($file)){
             die('<h1>RollerPHP:配置文件 \'' .$configName. '\' 不存在</h1>');
         }else{
-            return include($file);
+            return include_once($file);
         }
     }
 
@@ -148,18 +148,19 @@ final class system {
         return new $DBCLASS($DBname, $DBip, $DBuser, $DBpwd, $memSwitch, $memName, $memPath);
     }
 
-    public static function load_class($className , $path='' , $init = 1) {
+    public static function load_class($className , $path = '' , $init = 1) {
         if('' == $path) {
             $path = CLASSES_PATH;
         }
-        $file = $path . '/' . $className . '.class.php';
+
+        $file = CLASSES_PATH.'/'.$path . '/' . $className . '.class.php';
 
         if(!file_exists($file)){
             die('<h1>RollerPHP:class \'' . $className . '\' 不存在</h1>');
 
         }else{
 
-            include($file);
+            include_once($file);
 
             if($init == 1){
                 return new $className(); // include , new
@@ -174,12 +175,14 @@ final class system {
             $path = MODELS_PATH;
         }
 
-        $file = $path . '/' . $modelName . '.model.php';
+        $file = MODELS_PATH.'/'.$path . '/' . $modelName . '.model.php';
+
+        // echo $file;
 
         if(!file_exists($file)) {
             die('<h1>RollerPHP:model \'' . $modelName . '\' 不存在</h1>');
         } else {
-            include($file);
+            include_once($file);
             return new $modelName();
         }
     }
@@ -207,7 +210,7 @@ final class system {
         if(!file_exists($file)) {
             die('<h1>RollerPHP:Controller \'' . $contName . '\' 不存在</h1>');
         }else{
-            include($file);
+            include_once($file);
         }
     }
 
@@ -221,7 +224,7 @@ final class system {
         if(!file_exists($file)) {
             die('<h1>RollerPHP:function \'' . $funcName . '\' 不存在</h1>');
         }else{
-            include($file);
+            include_once($file);
         }
     }
 
@@ -230,7 +233,7 @@ final class system {
      渲染视图引擎  采用{{.*}}
      ************
      ************/
-        public static function drawViews($filename,$dataArray,$path = '') {
+    public static function drawViews($filename,$dataArray,$path = '') {
         if ($path == '') {
             $path = VIEWS_PATH;
         }
@@ -408,7 +411,4 @@ final class system {
     }
 
     /*********************   endView   ***********************/
-    public static function test() {
-        echo "test system";
-    }
 }
