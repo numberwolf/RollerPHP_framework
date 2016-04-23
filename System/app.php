@@ -22,13 +22,14 @@ Roller($app_router);
 function Roller($app_router) {
     //// Controller
     // 选取目录Home(Index默认)
-    $route_home = preg_match('/^[a-z]/' , $_GET['Home']) ? $_GET['Home'] : $app_router['Home'];
+    $route_home = preg_match('/^[a-zA-Z0-9]/' , $_GET['Home']) ? $_GET['Home'] : $app_router['Home'];
+    echo $route_home;
 
     // 选取页面Controller
-    $route_control = preg_match('/^[a-z]/' , $_GET['Cont']) ? $_GET['Cont'] : $app_router['Cont'];
+    $route_control = preg_match('/^[a-zA-Z0-9]/' , $_GET['Cont']) ? $_GET['Cont'] : $app_router['Cont'];
 
     // 选取方法Method
-    $route_method = preg_match('/^[a-z]/' , $_GET['Meth']) ? $_GET['Meth'] : $app_router['Meth'];
+    $route_method = preg_match('/^[a-zA-Z0-9]/' , $_GET['Meth']) ? $_GET['Meth'] : $app_router['Meth'];
 
     $module = CONT_PATH . '/' . $route_home;
     $controller = $module . '/' . $route_control . '.php';
