@@ -241,7 +241,7 @@ final class system {
 
     /***********
      ***********
-     渲染视图引擎  采用{{.*}}
+     渲染视图引擎  采用{{.*}} $dataArray
      ************
      ************/
     public static function drawViews($filename,$dataArray,$path = '') {
