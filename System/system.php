@@ -209,7 +209,7 @@ final class system {
         $file = '';
 
         if($path == '') {
-            $path = CONT_PATH.'/'.$homeName.'/'.$contName.'.php';
+            $file = CONT_PATH.'/'.$homeName.'/'.$contName.'.php';
         } else {
             $file = CONT_PATH.'/'.$path.'/'.$homeName.'/'.$contName.'.php';
         }
