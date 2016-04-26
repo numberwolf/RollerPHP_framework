@@ -112,7 +112,7 @@ final class system {
         if(!file_exists($file)){
             die('<h1>RollerPHP:配置文件 \'' .$configName. '\' 不存在</h1>');
         }else{
-            return include_once($file);
+            return include($file);
         }
     }
 
