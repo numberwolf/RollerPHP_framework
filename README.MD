@@ -1,4 +1,5 @@
 <img src="Storage/RollerPHP_small.png" />
+* 2016/05/01,更新URL标准路径 在./Views/upload.html中，更新推荐URL为?Home=Index&Cont=index&Meth=uploadFile&class=temp，改变了以往的__Parameter__格式
 * 2016/04/04,更新非PDO连接数据库类库的更新
 * 2016/03/30,更新视图层路由路径                 
 * 2016/03/20,控制器加入命名空间(具体反馈请看文档http://123.56.154.87/RollerDoc/introduce.html),控制器命名:空间规则, <font color="blue">namespace Controller\Home名称</font> 
