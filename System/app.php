@@ -80,17 +80,17 @@ function Roller($app_router) {
                     } else {
                         $filename = '';
                         // 文件名
-                        if ($_GET['filename']) {
-                            $filename = $_GET['filename'];
+                        if ($_POST['filename']) {
+                            $filename = $_POST['filename'];
                         } else {
                             $filename = $_FILES[$key]["name"];
                         }
 
                         $path = SOTRAGE_PATH .'/' . $filename;
 
-                        if ($_GET['class']) {
+                        if ($_POST['class']) {
                             // echo "<hr>class:".$_GET['class'];
-                            $path = SOTRAGE_PATH .'/' .$_GET['class'].'/'.$filename;
+                            $path = SOTRAGE_PATH .'/' .$_POST['class'].'/'.$filename;
                         }
 
                         $dataArr['upload_error'] = move_uploaded_file($_FILES[$key]["tmp_name"], $path);
