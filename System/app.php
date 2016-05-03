@@ -93,11 +93,9 @@ function Roller($app_router) {
                             $path = SOTRAGE_PATH .'/' .$_GET['class'].'/'.$filename;
                         }
 
-                        move_uploaded_file($_FILES[$key]["tmp_name"], $path);
+                        $dataArr['upload_error'] = move_uploaded_file($_FILES[$key]["tmp_name"], $path);
                     }
                 }
-
-                $dataArr['upload_error'] = $upload_error_arr;
             }
 
             /**

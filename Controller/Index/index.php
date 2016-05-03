@@ -90,11 +90,7 @@ class index extends \Controller\Test\test{
     // 上传文件结果回调
     public function uploadFile($dataArr) {
 
-        if (count($dataArr['upload_error']) <= 0) {
-            echo "上传成功";
-        } else {
-            echo var_dump($dataArr['upload_error']);
-        }
+        var_dump($dataArr);
     }
 
     public function textPost($dataArr){
