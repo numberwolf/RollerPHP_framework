@@ -27,7 +27,7 @@ class db{
     private $other_Str = null;
     private $newObj_str = null;
     private $sql_str = null;
-    private $PDO_OBJ = null;
+    public $PDO_LINK = null;
 
     // 连接数据库
     function __construct($DBname, $DBip, $DBuser, $DBpwd, $memSwitch = false, $memName, $memPath){
@@ -37,7 +37,8 @@ class db{
         $this->DBpwd = $DBpwd;
 
         try {
-            $this->PDO_OBJ = new PDO("mysql:host=$this->DBip;dbname=$this->DBname;",$this->DBuser,$this->DBpwd);
+            $this->PDO_LINK = new PDO("mysql:host=$this->DBip;dbname=$this->DBname;",$this->DBuser,$this->DBpwd);
+
 
             if ($memSwitch == true) {
                 \RSystem\system::load_class($memName, $memPath, 0);
@@ -45,16 +46,20 @@ class db{
                 memcacheClass::init();
             }
 
+            $this->PDO_LINK->setAttribute(PDO::ATTR_AUTOCOMMIT,1);
+            $this->PDO_LINK->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            // $this->PDO_LINK->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
         } catch (PDOException $e) {
             die("connect fail!".$e->getMessage());
         }
 
-        $this->PDO_OBJ->query('set names utf8');
+        $this->PDO_LINK->query('set names utf8');
     }
     // 释放连接
     public function overConnect(){
-        $this->PDO_OBJ = null;
-        unset($this->PDO_OBJ);
+        $this->PDO_LINK = null;
+        unset($this->PDO_LINK);
         $this->relaseThis();
     }
     // 设置数据表名
@@ -87,12 +92,13 @@ class db{
         return $this;
     }
     private function do_sql_query($sqlstr){
-        $queryBool = $this->PDO_OBJ->exec($sqlstr);
+
+        $queryBool = $this->PDO_LINK->exec($sqlstr);
         $this->relaseThis();
         if ($queryBool) {
-            return array('pass' => 'true');
+            return array('pass' => true);
         }else{
-            return array('pass' => 'false');
+            return array('pass' => false);
         }
     }
     private function relaseThis(){
@@ -121,7 +127,7 @@ class db{
         } else {
 
 
-            $sql_query = $this->PDO_OBJ->query($this->sql_str);
+            $sql_query = $this->PDO_LINK->query($this->sql_str);
             $returnArr = $sql_query->fetchAll(PDO::FETCH_ASSOC);
 
             // 如果不释放的话就会占满空间，无法进行新建一个类中一个函数内两次调用此方法
