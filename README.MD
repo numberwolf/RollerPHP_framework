@@ -1,5 +1,5 @@
 <img src="Storage/RollerPHP_small.png" />
-* 2016/05/03,修正db.class.php兼容事务,之前的db封装类库的PDO连接为私有，所以不兼容，更新之后兼容事务
+* 2016/05/03,修正db.class.php兼容事务,之前的db封装类库的PDO连接为私有，所以不兼容，更新之后兼容事务,修正文件上传封装拓展
 * 2016/05/01,更新URL标准路径 在./Views/upload.html中，更新推荐URL为?Home=Index&Cont=index&Meth=uploadFile&class=temp，改变了以往的__Parameter__格式
 * 2016/04/04,更新非PDO连接数据库类库的更新
 * 2016/03/30,更新视图层路由路径                 

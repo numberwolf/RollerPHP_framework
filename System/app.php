@@ -78,21 +78,22 @@ function Roller($app_router) {
 
                         array_push($upload_error_arr, array('upload_errorMsg' => $_FILES[$key]["error"]));
                     } else {
-                        // echo "Upload: " . $_FILES[$key]["name"] . "<br />";
-                        // echo "Type: " . $_FILES[$key]["type"] . "<br />";
-                        // echo "Size: " . ($_FILES[$key]["size"] / 1024) . " Kb<br />";
-                        // echo "Stored in: " . $_FILES[$key]["tmp_name"];
+                        $filename = '';
+                        // 文件名
+                        if ($_GET['filename']) {
+                            $filename = $_GET['filename'];
+                        } else {
+                            $filename = $_FILES[$key]["name"];
+                        }
 
-                        $path = SOTRAGE_PATH .'/' . $_FILES[$key]["name"];
+                        $path = SOTRAGE_PATH .'/' . $filename;
 
                         if ($_GET['class']) {
                             // echo "<hr>class:".$_GET['class'];
-                            $path = SOTRAGE_PATH .'/' .$_GET['class'].'/'.$_FILES[$key]["name"];
+                            $path = SOTRAGE_PATH .'/' .$_GET['class'].'/'.$filename;
                         }
 
                         move_uploaded_file($_FILES[$key]["tmp_name"], $path);
-
-                        // echo "Stored in: " . dirname(dirname(dirname(__FILE__))) . '/Storage/' . $_FILES[$key]["name"];
                     }
                 }
 
