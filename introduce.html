@@ -476,11 +476,13 @@
 
     			<font color="black"><br>
     				<p>form表单中的url说明:__Home文件夹名__/___控制器名___/____方法名____[&参数1[&参数2[&...]]]</p>
+    				<p><b>(推荐)在upload.html中，更新推荐URL为?                                                            Home=Index&Cont=index&Meth=uploadFile&class=temp，改变了以往的__Parameter__格式
+    				</b></p>
     				<p>此处class参数，指存储目录Storage下的指定文件夹，如果不指定的话则存储在Storage根目录下面</p>
     				<p>以上为关于Get参数的传递以及路径URL代码规范
     				</p>
     			</font>
-    			&lt;form action="__Index__/___index___/____uploadFile____&class=temp" enctype="multipart/form-data" method="post" name="uploadfile"&lt;<br>
+    			&lt;form action="?                                                            Home=Index&Cont=index&Meth=uploadFile&class=temp" enctype="multipart/form-data" method="post" name="uploadfile"&lt;<br>
 				&lt;input type="file" name="textFile" /&lt;&lt;br&lt;<br>
 				&lt;input type="submit" value="上传" /&lt;&lt;/form&lt;<br>
 
@@ -536,7 +538,9 @@
 	    			<p>(1)POST参数,例如在Views视图层的html文件中,以form表单POST形式传递</p>
 	    			例如在Views/test.html中form表单中：
     			</font>
-    			<p>url:__Index__/___index___/____testPost____,
+    			<p>
+    				<b>url（更新，推荐）:Home=Index&Cont=index&Meth=testPost</b><br>
+    				url:__Index__/___index___/____testPost____          
     			</p>
     			<p>data:{parameter:"helloworld"}
     			</p>
