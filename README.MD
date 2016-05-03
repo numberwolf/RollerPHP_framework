@@ -11,7 +11,7 @@
 ####开发者：	NumberWolf
 ####邮箱：		porschegt23@foxmail.com
 ####时间：		2016/02/05
-####中文文档：	http://123.56.154.87/RollerDoc/introduce.html
+####中文文档：	http://numberwolf.top/RollerDoc/introduce.html
 ———————————-———————————-———————————-————————
       
  <p>* Copyright [2016] [Chang Yanlong]</p>
