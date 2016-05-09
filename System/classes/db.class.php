@@ -95,10 +95,11 @@ class db{
 
         $queryBool = $this->PDO_LINK->exec($sqlstr);
         $this->relaseThis();
-        if ($queryBool) {
-            return array('pass' => true);
-        }else{
+        if ($queryBool === false) {
             return array('pass' => false);
+            
+        }else{
+            return array('pass' => true);
         }
     }
     private function relaseThis(){
@@ -126,19 +127,22 @@ class db{
 
         } else {
 
+            try {
+                $sql_query = $this->PDO_LINK->query($this->sql_str);
+                $returnArr = $sql_query->fetchAll(PDO::FETCH_ASSOC);
 
-            $sql_query = $this->PDO_LINK->query($this->sql_str);
-            $returnArr = $sql_query->fetchAll(PDO::FETCH_ASSOC);
+                // 如果不释放的话就会占满空间，无法进行新建一个类中一个函数内两次调用此方法
+                $this->relaseThis();
 
-            // 如果不释放的话就会占满空间，无法进行新建一个类中一个函数内两次调用此方法
-            $this->relaseThis();
+                if($memSwitch == true ) {
+                    echo memcacheClass::setMemCache($returnArr,$key);
+                }
 
-            if($memSwitch == true ) {
-                echo memcacheClass::setMemCache($returnArr,$key);
-
+                return $returnArr;
+            } catch (Exception $e) {
+                return array('pass' => false);
             }
-
-            return $returnArr;
+            
         }
     }
     // 改
@@ -146,6 +150,26 @@ class db{
         $this->sql_str = "UPDATE $this->TabName SET $this->object_str = $this->newObj_str $this->where_str";
         return $this->do_sql_query($this->sql_str);
     }
+
+    // 更新 - 新版
+    public function update_new_command($update_array) {
+        $updateStr = null;
+        $max = count($update_array);
+        $num = 1;
+
+        foreach ($update_array as $key => $value) {
+            $keyvalstr = $key.'="'.mysql_escape_string($value).'"';
+            $updateStr.=$keyvalstr;
+            if ($num < $max) {
+                $updateStr.=',';
+            }
+            $num++;
+        }
+
+        $this->sql_str = "UPDATE $this->TabName SET $updateStr $this->where_str";
+        return $this->do_sql_query($this->sql_str);
+    }
+
     // 删
     public function del_command(){
         $this->sql_str = "DELETE FROM $this->TabName $this->where_str";

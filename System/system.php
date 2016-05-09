@@ -16,6 +16,10 @@
  **************************************************************************/
 namespace RSystem;
 
+header('content-type:text/html;charset=utf-8');
+header('Cache-Control: no-cache, no-store, max-age=0, must-revalidate');
+header('Pragma: no-cache');
+
 if(!defined('CHMOD_ROLLER'))            define('CHMOD_ROLLER',       TRUE);
 
 /*框架目录*/
@@ -64,33 +68,10 @@ define('VIEWS_PATH',                    ROLLER_PATH . '/'.VIEWS_NAME);
 define('DB_CONFIG_NAME',                'db');
 
 /*数据模型 命名空间前缀*/
-define('MODELS_NAMESPACE', 'Models');
-
-
-// if (get_magic_quotes_gpc()) {
-//     function stripslashes_deep($value) {
-//         $value = is_array($value) ?
-//             array_map('stripslashes_deep', $value) :
-//             stripslashes($value);
-
-//         return $value;
-//     }
-
-//     $_POST = array_map('stripslashes_deep', $_POST);
-//     $_GET = array_map('stripslashes_deep', $_GET);
-//     $_COOKIE = array_map('stripslashes_deep', $_COOKIE);
-//     $_REQUEST = array_map('stripslashes_deep', $_REQUEST);
-// }
-
-// error_reporting(E_ALL ^ E_NOTICE);
-// ob_start();
+define('MODELS_NAMESPACE',              'Models');
 
 // $PHP_SELF = $_SERVER['PHP_SELF'];
 // $url = 'http://'.$_SERVER['HTTP_HOST'].substr($PHP_SELF,0,strrpos($PHP_SELF,'/')+1);
-
-header('content-type:text/html;charset=utf-8');
-header('Cache-Control: no-cache, no-store, max-age=0, must-revalidate');
-header('Pragma: no-cache');
 
 // require_once(CONT_PATH.'/Index/index.php');
 // $t = new Controller\Index\index();
@@ -242,6 +223,24 @@ final class system {
     /***********
      ***********
      渲染视图引擎  采用{{.*}} $dataArray
+     $dataArray 数据格式
+
+        $returnArr : ArrayObject
+         [{ 
+            [0]=> array(4) {
+                [0]=> string(5) "hello" 
+                [1]=> string(4) "name" 
+                [2]=> string(3) "sex" 
+                [3]=> string(5) " boy " 
+            } 
+            [1]=> array(4) { 
+                [4]=> string(5) "hello" 
+                [5]=> string(4) "name" 
+                [6]=> string(3) "sex" 
+                [7]=> string(5) " boy " 
+            }
+        }]
+
      ************
      ************/
     public static function drawViews($filename,$dataArray,$path = '') {
@@ -381,23 +380,6 @@ final class system {
         }
 
         $returnArr = array_chunk($returnArr,$certainNum,false);
-
-        /***
-        $returnArr [{ 
-            [0]=> array(4) {
-                [0]=> string(5) "hello" 
-                [1]=> string(4) "name" 
-                [2]=> string(3) "sex" 
-                [3]=> string(5) " boy " 
-            } 
-            [1]=> array(4) { 
-                [4]=> string(5) "hello" 
-                [5]=> string(4) "name" 
-                [6]=> string(3) "sex" 
-                [7]=> string(5) " boy " 
-            }
-        }]
-        ***/
         
         $keyArrNum = 0;
         // foreach ($dataArray as $dataModelArr) {
