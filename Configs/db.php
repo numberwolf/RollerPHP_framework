@@ -20,7 +20,7 @@ define('DBNAME','test');
 define('DBHOST','127.0.0.1');
 define('DBPORT','');
 define('DBUSER','root');
-define('DBPASS','porsche');
+define('DBPASS','changyanlong');
 define('DBCHAR','utf8');
 define('DBTbBG','');
 

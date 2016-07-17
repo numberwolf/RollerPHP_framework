@@ -28,13 +28,15 @@ class db{
     private $newObj_str = null;
     private $sql_str = null;
     public $PDO_LINK = null;
+    private $memcache_switch = false;
 
     // 连接数据库
-    function __construct($DBname, $DBip, $DBuser, $DBpwd, $memSwitch = false, $memName, $memPath){
+    function __construct($DBname, $DBip, $DBuser, $DBpwd, $memSwitch = false, $memPort,$memName, $memPath){
         $this->DBname = $DBname;
         $this->DBip = $DBip;
         $this->DBuser = $DBuser;
         $this->DBpwd = $DBpwd;
+        $this->memcache_switch = $memSwitch;
 
         try {
             $this->PDO_LINK = new PDO("mysql:host=$this->DBip;dbname=$this->DBname;",$this->DBuser,$this->DBpwd);
@@ -43,7 +45,7 @@ class db{
             if ($memSwitch == true) {
                 \RSystem\system::load_class($memName, $memPath, 0);
 
-                memcacheClass::init();
+                memcacheClass::init($memPort);
             }
 
             $this->PDO_LINK->setAttribute(PDO::ATTR_AUTOCOMMIT,1);
@@ -121,7 +123,7 @@ class db{
 
         $key = md5($this->sql_str);
 
-        if($memSwitch == true && $returnArr = memcacheClass::getMemCache($key)) {
+        if($this->memcache_switch == true && $returnArr = memcacheClass::getMemCache($key)) {
             echo memcacheClass::getMemCache($key);
             return $returnArr;
 

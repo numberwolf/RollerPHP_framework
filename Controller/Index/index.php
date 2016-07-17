@@ -26,8 +26,6 @@ class index extends \Controller\Test\test{
     }
 
     public function start($dataArr) {
-        // var_dump($dataArr);
-        // echo $dataArr['test']."<hr>";
 
         echo '<img src="'.\RSystem\system::load_storage('RollerPHP_small.png','temp').'" />';
         echo '<h1>欢迎使用RollerPHP框架!</h1><br>作者:NumberWolf<br>邮箱:porschegt23@foxmail.com<br>';

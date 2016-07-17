@@ -70,12 +70,6 @@ define('DB_CONFIG_NAME',                'db');
 /*数据模型 命名空间前缀*/
 define('MODELS_NAMESPACE',              'Models');
 
-// $PHP_SELF = $_SERVER['PHP_SELF'];
-// $url = 'http://'.$_SERVER['HTTP_HOST'].substr($PHP_SELF,0,strrpos($PHP_SELF,'/')+1);
-
-// require_once(CONT_PATH.'/Index/index.php');
-// $t = new Controller\Index\index();
-
 
 final class system {
 
@@ -107,7 +101,7 @@ final class system {
         return 'http://'.$_SERVER['HTTP_HOST'].'/'.PROJECT_NAME.'/'.$path.'/'.$fileName;
     }
 
-    public static function load_pdo($database = '' ,$memSwitch = false ,$memName = 'memcache' ,$memPath = '') {
+    public static function load_pdo($database = '' ,$memSwitch = false , $memPort=11111,$memName = 'memcache' ,$memPath = '') {
 
         $db_config_arr = self::load_config(DB_CONFIG_NAME);
         // $path = CLASSES_PATH.'/'.DB_CONFIG_NAME.'.class.php';
@@ -126,7 +120,7 @@ final class system {
         $DBpwd = $db_config_arr['DBPASS'];
         $DBCLASS = DB_CONFIG_NAME;
 
-        return new $DBCLASS($DBname, $DBip, $DBuser, $DBpwd, $memSwitch, $memName, $memPath);
+        return new $DBCLASS($DBname, $DBip, $DBuser, $DBpwd, $memSwitch, $memPort, $memName, $memPath);
     }
 
     public static function load_class($className , $path = '' , $init = 1) {
