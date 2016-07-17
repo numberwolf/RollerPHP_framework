@@ -96,7 +96,7 @@
 							<a href="#config">配置文件</a><br>
 						</li>
 						<li>
-							<a href="#controller">控制器目录</a><br>
+							<a href="#controller">控制器目录（已更新）</a><br>
 						</li>
 						<li>
 							<a href="#system">系统 / 路由</a><br>
@@ -312,11 +312,20 @@
     	<h4>控制器Controller/Index/index.php:</h4>
     	<div class="highlight">
     		<code class="language-html" data-lang="html"><br>
-    			<font color="#666666">
+                <font color="#666666">
+                    //在页面中访问&nbsp;<br><font color="red">目前新版路由</font>
+                    <u>.../?Index/index/start&key=value&...</u>
+                    &nbsp;(index控制器,start方法)
+                </font><br>
+
+                <!--<blockquote>-->
+                <del><font color="#666666">
     				//在页面中访问&nbsp;
-    				<u>.../?Home=Index&Cont=index&Meth=start</u>
+    				<u>.../?Home=Index&Cont=index&Meth=start(此方法已经废弃)</u>
     				&nbsp;(index控制器,start方法)
-    			</font><br>
+    			</font></del><br>
+                <!--</blockquote>-->
+
     			<font color="blue">namespace Controller\Index;</font><font color="#666666">// 命名空间规则：Controller\文件夹</font><br>
     			<font color="blue">\RSystem\system::load_cont('Test', 'test');</font><font color="#666666">// 如果需要继承test控制器(位于Controller/Test/test.php)</font><br>
 
