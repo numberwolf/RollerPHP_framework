@@ -91,14 +91,19 @@ final class system {
         }
     }
 
-    public static function load_storage($fileName, $class = '') {
-        $path = SOTRAGE_NAME;
+    public static function load_storage($fileName, $class = '', $path = null) {
 
-        if ($class != '') {
-            $path = SOTRAGE_NAME.'/'.$class;
+        if(null == $path) {
+            $file_path = PROJECT_NAME.'/'.SOTRAGE_NAME;
+        } else {
+            $file_path = $path.'/'.PROJECT_NAME.'/'.SOTRAGE_NAME;
         }
 
-        return 'http://'.$_SERVER['HTTP_HOST'].'/'.PROJECT_NAME.'/'.$path.'/'.$fileName;
+        if ($class != '') {
+            $f_path = $file_path.'/'.$class;
+        }
+
+        return 'http://'.$_SERVER['HTTP_HOST'].'/'.$f_path.'/'.$fileName;
     }
 
     public static function load_pdo($database = '' ,$memSwitch = false , $memPort=11111,$memName = 'memcache' ,$memPath = '') {
