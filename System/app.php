@@ -32,7 +32,6 @@ function Roller($app_router) {
     $controller = $module . '/' . $route_control . '.php';
 
     if(!is_dir($module)) die('<h1>RollerPHP: \'' . $route_home . '\' 找不到</h1>');
-    var_dump($route_arr);
     if(!file_exists($controller)){
         die('<h1>RollerPHP:控制器文件 \'' . $route_control . '\' 找不到!');
 
