@@ -21,6 +21,7 @@ Roller($app_router);
 
 function Roller($app_router) {
     $route_arr = explode("/",explode("&",explode("?",$_SERVER['REQUEST_URI'])[1])[0]);
+    $route_arr = array_values(array_diff($route_arr,array(null,'','null',' ')));
 
     $route_home = count($route_arr)>0 ? $route_arr[0] : $app_router['home'];
     $route_control =  count($route_arr)>1 ? $route_arr[1] : $app_router['Cont'];
@@ -31,7 +32,7 @@ function Roller($app_router) {
     $controller = $module . '/' . $route_control . '.php';
 
     if(!is_dir($module)) die('<h1>RollerPHP: \'' . $route_home . '\' 找不到</h1>');
-
+    var_dump($route_arr);
     if(!file_exists($controller)){
         die('<h1>RollerPHP:控制器文件 \'' . $route_control . '\' 找不到!');
 
