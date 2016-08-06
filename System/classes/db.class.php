@@ -182,4 +182,33 @@ class db{
         $this->sql_str = 'INSERT INTO '.$this->TabName.'('.$this->object_str.') values('.$this->newObj_str.')';
         return $this->do_sql_query($this->sql_str);
     }
+
+    // 更新 - 新版 增
+    public function insert_new_command($insert_array){
+        // $insert_array是一个二维数组
+        $insertString = null;
+
+        for ($i=0; $i < count($insert_array); $i++) {
+            $insert_str_temp = "(";
+            $length = count($insert_array[$i]);
+
+            for ($j=0; $j < $length; $j++) {
+                $variable = $insert_array[$i][$j];
+                if ($j < ($length-1)) {
+                    $insert_str_temp.="'$variable',";
+                } else {
+                    $insert_str_temp.="'$variable')";
+                }
+            }
+
+            if($i == 0) {
+                $insertString = $insert_str_temp;
+            } else {
+                $insertString .= ",$insert_str_temp";
+            }
+        }
+
+        $this->sql_str = 'INSERT INTO '.$this->TabName.'('.$this->object_str.') values'.$insertString;
+        return $this->do_sql_query($this->sql_str);
+    }
 }
