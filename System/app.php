@@ -23,7 +23,7 @@ function Roller($app_router) {
     $route_arr = explode("/",explode("&",explode("?",$_SERVER['REQUEST_URI'])[1])[0]);
     $route_arr = array_values(array_diff($route_arr,array(null,'','null',' ')));
 
-    $route_home = count($route_arr)>0 ? $route_arr[0] : $app_router['home'];
+    $route_home = count($route_arr)>0 ? $route_arr[0] : $app_router['Home'];
     $route_control =  count($route_arr)>1 ? $route_arr[1] : $app_router['Cont'];
     $route_method = count($route_arr)>2 ? $route_arr[2] : $app_router['Meth'];
     //$route_method = preg_match('/^[a-zA-Z0-9]/' , $_GET['Meth']) ? $_GET['Meth'] : $app_router['Meth'];
