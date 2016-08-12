@@ -20,7 +20,18 @@ $app_router = \RSystem\system::load_config('config');
 Roller($app_router);
 
 function Roller($app_router) {
-    $route_arr = explode("/",explode("&",explode("?",$_SERVER['REQUEST_URI'])[1])[0]);
+    $route_arr = explode("/",preg_replace(
+        	array(
+                "/(index\.php\/)/ism",
+                "/(\?\/)/ism",
+                "/(".PROJECT_NAME."\/)/ism"
+            ),
+        	'',
+        	$_SERVER['REQUEST_URI']
+        )
+    );
+
+
     $route_arr = array_values(array_diff($route_arr,array(null,'','null',' ')));
 
     $route_home = count($route_arr)>0 ? $route_arr[0] : $app_router['Home'];

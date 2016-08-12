@@ -22,5 +22,6 @@ define('Meth','start');
 return array(
     'Home' => Home ,
     'Cont' => Cont ,
-    'Meth' => Meth
+    'Meth' => Meth,
+    'URL_MODEL' => '2', 
     );
