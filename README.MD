@@ -1,4 +1,5 @@
 <img src="Storage/RollerPHP_small.png" />
+* 2016/08/12,更新路由器：http://yourhost/projectname/index.php/Home/Controller/Method
 * 2016/07/17,更新路由器，更新memcache缓存bug
 * 2016/05/03,修正db.class.php兼容事务,之前的db封装类库的PDO连接为私有，所以不兼容，更新之后兼容事务,修正文件上传封装拓展,修正上传文件
 * 2016/05/01,更新URL标准路径 在./Views/upload.html中，更新推荐URL为?Home=Index&Cont=index&Meth=uploadFile&class=temp，改变了以往的__Parameter__格式
