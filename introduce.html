@@ -247,7 +247,7 @@
 	    <h4>控制器访问：</h4>
     	<div class="highlight">
     		<code class="language-html" data-lang="html">
-    			在访问时候url具体为：http://host/RollerPHP/index.php?Home=<b><u>Home文件夹</u></b>&Cont=<b><u>控制器文件名(无.php后缀)</u></b>&Meth=<b><u>方法名</u></b>
+    			在访问时候url具体为：http://host/RollerPHP/index.php(这里可以配置apache重写url直接省略)/<b><u>Home文件夹</u></b>/<b><u>控制器文件名(无.php后缀)</u></b>/<b><u>方法名</u></b>
 		    </code>
 		    <br>
 		    <code class="language-html" data-lang="html"><br>
@@ -314,8 +314,8 @@
     		<code class="language-html" data-lang="html"><br>
                 <font color="#666666">
                     //在页面中访问&nbsp;<br><font color="red">目前新版路由</font>
-                    <u>.../?Index/index/start&key=value&...</u>
-                    &nbsp;(index控制器,start方法)
+                    <u>.../Index/index/start&key=value&...</u>
+                    &nbsp;(Index为Home,index控制器,start方法)
                 </font><br>
 
                 <!--<blockquote>-->
