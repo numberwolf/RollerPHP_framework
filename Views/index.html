@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>这是一个视图层</title>
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script>
+  $(document).ready(function() {
+    $("#view").html("第一波:测试键hello ,值:{{hello}},测试键name 值:{{name}},测试键sex 值:{{sex}},测试键boy 值:{{ boy }}<br>"
+      + "第二波:测试键hello 值:{{hello}},测试键name 值:{{name}},测试键sex 值:{{sex}},测试键boy 值:{{ boy }}"
+      );
+  });
+  </script>
+</head>
+<body>
+	<div id="view"></div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+.git
+.idea
+.DS_Store
+*.idea
+*.DS_Store
+test.sh
+document
+document*
+introduce*
