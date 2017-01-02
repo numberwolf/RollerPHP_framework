@@ -10,7 +10,7 @@
 * 2016/03/20,控制器加入命名空间(具体反馈请看文档http://123.56.154.87/RollerDoc/introduce.html),控制器命名:空间规则, <font color="blue">namespace Controller\Home名称</font> 
 	  
 #### 翻滚吧 PHP!      
-###RollerPHP V1.0
+###RollerPHP V1.2
 ======================================================================   
 ####开发者：	NumberWolf
 ####邮箱：		porschegt23@foxmail.com
@@ -18,7 +18,7 @@
 ####中文文档：	http://numberwolf.top/RollerDoc/introduce.html
 ———————————-———————————-———————————-————————
       
- <p>* Copyright [2016] [Chang Yanlong]</p>
+ <p>* Copyright [2017] [Chang Yanlong]</p>
 
  <p>* Licensed under the Apache License, Version 2.0 (the "License");</p>
  <p>* you may not use this file except in compliance with the License.</p>
@@ -45,7 +45,7 @@
 |          
 |----------[Storage]						 // 存储       
 |     
-|----------[System]              			 // 核心/路由       
+|----------[System]              			 // 系统文件
 |     
 |----------[Templates] 						 // 模板    
 |    
