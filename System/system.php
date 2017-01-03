@@ -272,7 +272,11 @@ final class system {
         }
         
 
-        return self::replace_to_Parameter(URL_HEAD, $content, "/\{\{URL_HEAD\}\}/ism");
+        return self::replace_to_Parameter(
+				(UNSHOW_PRONAME==true?'':'?r='), 
+				$content, 
+				"/\{\{URL_HEAD\}\}/ism"
+		);
     }
 
     private static function returnView($content) {
@@ -346,10 +350,9 @@ final class system {
 
         foreach($returnArr as $key => $value) {
 			if(UNSHOW_PRONAME == false) {
-            	$rootPath = dirname(ROLLER_PATH);
-            	$rootPath = str_replace($rootPath,"",ROLLER_PATH);
+            	$rootPath = '?r=';
 			} else {
-				$rootPath = $_SERVER['HTTP_HOST'];
+				$rootPath = '';
 			}
             $content = str_replace('__'.$value.'__/', $rootPath.'/hm/'.$value, $content);
         }
