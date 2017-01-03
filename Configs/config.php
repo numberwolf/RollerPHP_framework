@@ -13,15 +13,12 @@
     http://www.apache.org/licenses/LICENSE-2.0
 
  **************************************************************************/
-
-// 配置默认入口
-define('Home','Index');
-define('Cont','index');
-define('Meth','start');
-
+/*
+ * 配置是否在url中展示项目名
+ * 如果不展示的话则为true，其他则需要在rewrite中配置了
+ * 例如nginx中:rewrite ^/(.*?)$ /RollerPHP_framework/index.php?/$1 last;
+ */
+define('UNSHOW_PRONAME', false);
 return array(
-    'Home' => Home ,
-    'Cont' => Cont ,
-    'Meth' => Meth,
     'URL_MODEL' => '2', 
     );

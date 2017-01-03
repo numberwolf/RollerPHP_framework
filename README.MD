@@ -1,5 +1,5 @@
 <img src="Storage/RollerPHP_small.png" />     
-* 2017/01/02,路由器改为PHP扩展C实现，PHP扩展路由地址：https://github.com/numberwolf/RollerPHP_Router_Extension, 目前仅支持Ubuntu 14.04上实现，PHP5.5伤的, 示例url：http://numberwolf.top/RollerPHP_CR_framework/hm/Index/ct/index/mt/start/a/1/b/2/c/3 ，目前请勿参考旧文档，旧文档因为过年还未来得及更新.
+* 2017/01/02,路由器改为PHP扩展C实现，PHP扩展路由地址：https://github.com/numberwolf/RollerPHP_Router_Extension, 目前仅支持Ubuntu 14.04上实现，PHP5.5伤的, 示例url：http://numberwolf.top/RollerPHP_CR_framework/?r=/hm/Index/ct/index/mt/start，目前请勿参考旧文档，旧文档因为过年还未来得及更新.
 * 2016/08/15,在html文件中相对链接前加{{URL_HEAD}}，定义全局URL_HEAD为项目前缀链接
 * 2016/08/12,更新路由器：http://yourhost/projectname/index.php/Home/Controller/Method
 * 2016/07/17,更新路由器，更新memcache缓存bug

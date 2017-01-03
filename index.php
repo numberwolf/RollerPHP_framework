@@ -20,13 +20,15 @@
  * limitations under the License.
  **************************************************************************/
 
+/***** 请访问:http://localhost/RollerPHP_framework/?r=/hm/Index/ct/index/mt/start ********/
+
 define('RollerPHP' , dirname(__FILE__));
 define('System' ,'/System');
 define(
     'URL_HEAD',
     $_SERVER['REQUEST_URI']
 );
-  
+
 $RollerBootstrap = new Roller();
 $RollerParams = $RollerBootstrap->sayroute(URL_HEAD);
 

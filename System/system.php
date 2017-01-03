@@ -22,7 +22,7 @@ header('Pragma: no-cache');
 
 if(!defined('CHMOD_ROLLER'))            define('CHMOD_ROLLER',       TRUE);
 
-/*框架目录*/
+/*框架目录 如果URL需要展示则配置，看需求*/
 define('ROLLER_PATH',                   dirname(dirname(__FILE__)));
 /*项目名称*/
 define('PROJECT_NAME',                  str_replace('/','',str_replace(dirname(ROLLER_PATH),'',ROLLER_PATH)));
@@ -94,9 +94,9 @@ final class system {
     public static function load_storage($fileName, $class = '', $path = null) {
 
         if(null == $path) {
-            $file_path = PROJECT_NAME.'/'.SOTRAGE_NAME;
+            $file_path = (UNSHOW_PRONAME==false?(PROJECT_NAME.'/'):'').SOTRAGE_NAME;
         } else {
-            $file_path = $path.'/'.PROJECT_NAME.'/'.SOTRAGE_NAME;
+            $file_path = $path.'/'.(UNSHOW_PRONAME==false?(PROJECT_NAME.'/'):'').SOTRAGE_NAME;
         }
 
         if ($class != '') {
@@ -299,7 +299,7 @@ final class system {
         }
 
         foreach($returnArr as $key => $value) {
-            $content = str_replace('____'.$value.'____', '&Meth='.$value, $content);
+            $content = str_replace('____'.$value.'____', '/mt/'.$value, $content);
         }
 
         return $content;
@@ -321,7 +321,7 @@ final class system {
         }
 
         foreach($returnArr as $key => $value) {
-            $content = str_replace('___'.$value.'___/', '&Cont='.$value, $content);
+            $content = str_replace('___'.$value.'___/', '/ct/'.$value, $content);
         }
 
         return $content;
@@ -345,10 +345,13 @@ final class system {
         }
 
         foreach($returnArr as $key => $value) {
-            $rootPath = dirname(ROLLER_PATH);
-
-            $rootPath = str_replace($rootPath,"",ROLLER_PATH);
-            $content = str_replace('__'.$value.'__/', $rootPath.'/?Home='.$value, $content);
+			if(UNSHOW_PRONAME == false) {
+            	$rootPath = dirname(ROLLER_PATH);
+            	$rootPath = str_replace($rootPath,"",ROLLER_PATH);
+			} else {
+				$rootPath = $_SERVER['HTTP_HOST'];
+			}
+            $content = str_replace('__'.$value.'__/', $rootPath.'/hm/'.$value, $content);
         }
 
         return $content;
