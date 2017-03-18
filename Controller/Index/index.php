@@ -30,11 +30,10 @@ class index extends \Controller\Test\test{
 		//var_dump($dataArr);
         $modelArr = 
         array(
-            array('email' =>'porschegt23@foxmail.com','github'=>'https://github.com/numberwolf'),
-            array('email' =>'porschegt23@foxmail.com','github'=>'https://github.com/numberwolf'),
+            array('github'=>'https://github.com/numberwolf','codingnet'=>'https://coding.net/u/numberwolf/'),
         );
 
-        echo \RSystem\system::drawViews('start',$modelArr)."<br>这是一个html渲染实例";
+        echo \RSystem\system::drawViews('start',$modelArr);
         echo '<img src="'.\RSystem\system::load_storage('RollerPHP_small.png','temp').'" />';
         echo '<h1>欢迎使用RollerPHP框架!</h1><br>作者:NumberWolf<br>邮箱:porschegt23@foxmail.com<br>';
         // $this->test_cont();
