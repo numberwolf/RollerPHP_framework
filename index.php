@@ -21,6 +21,7 @@
  **************************************************************************/
 
 /***** 请访问:http://localhost/RollerPHP_framework/?r=/hm/Index/ct/index/mt/start ********/
+/***** 请访问:http://hi.realrace.cn/RollerPHP/hm/Index/ct/index/mt/start ********/
 
 define('RollerPHP' , dirname(__FILE__));
 define('System' ,'/System');

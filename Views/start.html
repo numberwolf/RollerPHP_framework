@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>这是一个视图层</title>
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script>
+  $(document).ready(function() {
+    $("#view").html("email:{{email}}<br>github:{{github}}"
+		+ "<br>email:{{email}}<br>github:{{github}}"
+		);
+  });
+  </script>
+</head>
+<body>
+	<div id="view"></div>
+</body>
+</html>
