@@ -30,13 +30,13 @@
 
 ======================================================================  
 
-####开发者：	NumberWolf
+#### 开发者：	NumberWolf
 
-####邮箱：		porschegt23@foxmail.com
+#### 邮箱：		porschegt23@foxmail.com
 
-####时间：		2016/02/05
+#### 时间：		2016/02/05
 
-####中文文档：	http://realrace.cn/RollerDoc/introduce.html
+#### 中文文档：	http://realrace.cn/RollerDoc/introduce.html
 
 ———————————-———————————-———————————-————————
       
@@ -55,7 +55,8 @@
  <p>* limitations under the License.</p>
 
 
-####框架结构:  
+#### 框架结构:  
+
 ```
 [RollerPHP]   
 |     
